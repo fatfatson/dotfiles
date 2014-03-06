@@ -50,7 +50,7 @@ set statusline=%m\ %F\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [L
 filetype plugin indent on  
 
 nmap <leader>vg ;vimgrep //gj **/*.lua
-nmap <silent> <leader>fd :call Search_Word()<CR>:copen<CR>
+nmap <silent> <leader>fd :call Search_Word()<CR>:bo copen<CR>
 function! Search_Word()
 	let w =	expand("<cword>")
 	let r =	substitute(w, '^ \(.\{-}\) $', '\1', '')
