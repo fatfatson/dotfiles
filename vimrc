@@ -17,13 +17,12 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-W>l
 map <C-s> :wa<cr>
-map <Tab> `
+"map <Tab> `
 map ' "
 "cmap w!! w !sudo dd of=%<cr>
 
-"let g:winManagerWindowLayout='FileExplorer|TagList'
-"let g:winManagerWindowLayout='FileExplorer'
 let Tlist_Use_Right_Window = 1
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 let Tlist_Show_One_File = 1
 map nrt :NERDTreeToggle<cr> 
 map tlt :TlistToggle<cr> 
@@ -51,7 +50,7 @@ set statusline=%m\ %F\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [L
 filetype plugin indent on  
 
 nmap <leader>vg ;vimgrep //gj **/*.lua
-nmap <silent> <leader>fd :call Search_Word()<CR>:copen<CR>
+nmap <silent> <leader>fd :call Search_Word()<CR>:bo copen<CR>
 function! Search_Word()
 	let w =	expand("<cword>")
 	let r =	substitute(w, '^ \(.\{-}\) $', '\1', '')
