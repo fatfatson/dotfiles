@@ -8,7 +8,7 @@
 
 dir="$( cd "$( dirname "$0" )" && pwd )"
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bash_profile bash_rc inputrc vimrc vim tmux.conf tmux-localprg.sh gitconfig gitignore"    # list of files/folders to symlink in homedir
+files="bash_profile bash_rc inputrc vimrc vim tmux.conf tmux-localprg.sh gitconfig gitignore hgrc"    # list of files/folders to symlink in homedir
 
 ##########
 
