@@ -24,8 +24,9 @@ map ' "
 let Tlist_Use_Right_Window = 1
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 let Tlist_Show_One_File = 1
-map nrt :NERDTreeToggle<cr> 
-map tlt :TlistToggle<cr> 
+map <silent> <leader>nrt :NERDTreeToggle<cr> 
+map <silent> <leader>tlt :TlistToggle<cr> 
+map <silent> <leader>boc :bo copen<cr>
 map <silent> <leader>res :!(cd ../resource_server; ./genfilelist.py)<cr>
 map <silent> <leader>si :wa<cr> :!~/git-repo/hd-prg/client/start_ios_sim.sh<cr>
 map <silent> <leader>sa :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh<cr>
