@@ -20,6 +20,7 @@ base/datadef/hd-doc/
 */logic/env.lua
 **/localtest*
 server/udata/
+server/res/
 hd-redis/
 resource_server/res/
 
