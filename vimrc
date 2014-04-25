@@ -29,8 +29,12 @@ map <silent> <leader>tlt :TlistToggle<cr>
 map <silent> <leader>boc :bo copen<cr>
 map <silent> <leader>res :!(cd ../resource_server; ./genfilelist.py)<cr>
 map <silent> <leader>si :wa<cr> :!~/git-repo/hd-prg/client/start_ios_sim.sh<cr>
-map <silent> <leader>sa :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh<cr>
+map <silent> <leader>sa :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh n<cr>
+map <silent> <leader>sa1 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh n '-s 192.168.56.101:5555'<cr>
+map <silent> <leader>sa2 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh n '-s 192.168.56.102:5555'<cr>
 map <silent> <leader>sb :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all<cr>
+map <silent> <leader>sb1 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all '-s 192.168.56.101:5555'<cr>
+map <silent> <leader>sb2 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all '-s 192.168.56.102:5555'<cr>
 map <silent> <leader>sr :wa<cr> :!./nginx.sh<cr><cr>
 
 colorscheme torte

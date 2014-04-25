@@ -12,6 +12,7 @@
 *.orig
 */proj.android/bin/*
 */proj.android/gen/*
+*/proj.android/obj/*
 *xcuserdata*
 *.xccheckout
 *.metadata/
