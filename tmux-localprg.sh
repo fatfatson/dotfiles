@@ -18,14 +18,8 @@ tmux send-keys -t localwork:2.2 'cd ~/git-repo/hd-prg/server' 'C-m'
 tmux send-keys -t localwork:2.2 './redis.sh' 'C-m'
 tmux send-keys -t localwork:2.2 './nginx.sh' 'C-m'
 
-tmux new-window -t localwork:3 -n 'res'
-tmux send-keys 'cd ~/git-repo/hd-prg/resource_server' 'C-m'
-tmux split-window -t localwork:3 -h -l 60
-tmux send-keys -t localwork:3.1 'cd ~/git-repo/hd-prg/resource_server' 'C-m'
-tmux send-keys -t localwork:3.1 './nginx.sh' 'C-m'
-
-tmux new-window -t localwork:4 -n 'cc'
+tmux new-window -t localwork:3 -n 'cc'
 tmux send-keys 'cd ~/git-repo/hd-cc' 'C-m'
 
-tmux new-window -t localwork:5 -n 'iossim'
+tmux new-window -t localwork:4 -n 'iossim'
 tmux attach
