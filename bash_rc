@@ -39,3 +39,5 @@ echo "unknow OS"
 fi
 
 #############################################
+
+alias tmuxk='tmux kill-server'

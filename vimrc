@@ -12,6 +12,7 @@ map <silent> <leader>ee :e ~/.vimrc<cr>
 map <silent> <leader>. ,be
 map <silent> <leader>rd :edit<cr>
 autocmd! bufwritepost .vimrc source ~/.vimrc
+autocmd! vimenter * NERDTree
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k

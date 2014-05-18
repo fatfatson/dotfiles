@@ -13,6 +13,7 @@
 */proj.android/bin/*
 */proj.android/gen/*
 */proj.android/obj/*
+*/proj.android/libs/*
 *xcuserdata*
 *.xccheckout
 *.metadata/
