@@ -1,4 +1,4 @@
-source ~/.bash_rc
+source ~/.bashrc
 export NDK_ROOT=~/sdk/andk
 export ANDROID_SDK_ROOT=~/sdk/adk
 export LIBIMOBILE_ROOT=~/sdk/libimobiledevice-macosx
