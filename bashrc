@@ -4,8 +4,17 @@ function check_and_run
 {
 	if [ -f $1 ]
    	then 
-		source $1 
-	fi
+        source $1 
+    fi
+}
+
+function adbs
+{
+    dno=`expr $1 + 1`
+    device="-s $(adb devices | sed -n $dno'p' | awk '{print $1}')"
+    echo $dno $device
+    shift
+    adb $device $@
 }
 
 
