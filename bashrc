@@ -24,7 +24,6 @@ function adbs
 
 #############################################
 if [ "$OS" == "Darwin" ] ;then
-echo "set for mac"
 
 # MacPorts Installer addition on 2013-04-14_at_16:00:44: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
@@ -38,7 +37,6 @@ export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
 #############################################
 elif [ "$OS" == "Linux" ] ;then
-echo "set for linux"
 
 alias api="sudo apt-get install"
 alias aps="apt-cache search"
@@ -46,9 +44,6 @@ alias sudo='sudo '
 alias ls='ls -al --color=auto'
 
 #############################################
-else
-echo "unknow OS"
-
 fi
 
 #############################################
