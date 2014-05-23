@@ -10,6 +10,10 @@ function check_and_run
 
 function adbs
 {
+    if [ x$1 == x ]; then
+        adb devices | sed '1d'
+        return
+    fi
     dno=`expr $1 + 1`
     device="-s $(adb devices | sed -n $dno'p' | awk '{print $1}')"
     echo $dno $device

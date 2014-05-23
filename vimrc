@@ -29,12 +29,12 @@ map <silent> <leader>tlt :TlistToggle<cr>
 map <silent> <leader>boc :bo copen<cr>
 map <silent> <leader>res :!(../tool/update_res_dir.sh)<cr>
 map <silent> <leader>si :wa<cr> :!~/git-repo/hd-prg/client/start_ios_sim.sh<cr>
-map <silent> <leader>sa :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh n<cr>
-map <silent> <leader>sa1 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh n 1<cr>
+map <silent> <leader>sa :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh n 1<cr>
 map <silent> <leader>sa2 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh n 2<cr>
-map <silent> <leader>sb :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all<cr>
-map <silent> <leader>sb1 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all 1<cr>
+map <silent> <leader>sa3 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh n 3<cr>
+map <silent> <leader>sb :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all 1<cr>
 map <silent> <leader>sb2 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all 2<cr>
+map <silent> <leader>sb3 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all 3<cr>
 map <silent> <leader>sr :wa<cr> :!./nginx.sh<cr><cr>
 
 colorscheme torte
