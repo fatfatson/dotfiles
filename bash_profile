@@ -1,4 +1,4 @@
-export EXEC_BASH_PROFILE=1
+export EXEC_BASH_PROFILE=`whoami`
 source ~/.bashrc
 export NDK_ROOT=~/sdk/andk
 export ANDROID_SDK_ROOT=~/sdk/adk
