@@ -13,5 +13,8 @@ for file in $files; do
 	ln -s $dir/$file ~/.$file
 done
 
+rm -rf ~/.profile
+cat profile | sed s/\$USER/`whoami`/ > ~/.profile
+
 mv ~/.ssh/config  ~/dotfiles_old/sshconfig
 ln -s $dir/sshconfig ~/.ssh/config
