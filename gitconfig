@@ -13,6 +13,7 @@
 	br = branch
 	mt = mergetool
 	di = diff --no-ext-diff
+    logn = log --name-status
 
 [push]
 	default = current
