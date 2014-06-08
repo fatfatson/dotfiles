@@ -10,9 +10,10 @@
 *.suo
 *.pkl
 *.orig
-*/proj.android/bin/*
-*/proj.android/gen/*
-*/proj.android/obj/*
+**/.*
+*/proj.*/bin/*
+*/proj.*/gen/*
+*/proj.*/obj/*
 */proj.android/libs/*
 *xcuserdata*
 *.xccheckout
@@ -25,6 +26,7 @@ server/udata/
 server/res*
 hd-redis/
 resource_server/res/
+nohup.out
 
 # Packages #
 ############

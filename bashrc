@@ -29,7 +29,6 @@ function geny
     fi
     device=$(VBoxManage list vms | sed -n $1'p' | sed 's/\"\(.*\)\".*/\1/g')
     echo $device
-    set -x
     nohup ~/genymotion/player --vm-name "$device"&
 }
 

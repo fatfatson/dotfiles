@@ -13,6 +13,7 @@
 	br = branch
 	mt = mergetool
 	di = diff --no-ext-diff
+	dic = diff --no-ext-diff --cached
 
 [push]
 	default = current

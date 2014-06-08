@@ -36,6 +36,7 @@ map <silent> <leader>sb :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh 
 map <silent> <leader>sb2 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all 2<cr>
 map <silent> <leader>sb3 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all 3<cr>
 map <silent> <leader>sr :wa<cr> :!./nginx.sh<cr><cr>
+map <silent> <leader>st :wa<cr> :!./nginx.sh -s stop<cr><cr>
 
 colorscheme torte
 syntax on    
