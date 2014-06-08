@@ -14,6 +14,7 @@
 	mt = mergetool
 	di = diff --no-ext-diff
 	dic = diff --no-ext-diff --cached
+    logn = log --name-status
 
 [push]
 	default = current
