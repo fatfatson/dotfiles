@@ -8,6 +8,12 @@ function check_and_run
     fi
 }
 
+#去掉文件每一行最后的0x0d
+function trimd
+{
+    sed  -ibak 's/\x0d$//g' $@
+}
+
 function adbs
 {
     if [ x$1 == x ]; then
