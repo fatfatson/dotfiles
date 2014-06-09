@@ -35,6 +35,9 @@ map <silent> <leader>sa3 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh
 map <silent> <leader>sb :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all 1<cr>
 map <silent> <leader>sb2 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all 2<cr>
 map <silent> <leader>sb3 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all 3<cr>
+map <silent> <leader>sm :wa<cr> :!~/git-repo/hd-prg/client/start_mac.sh 1<cr><cr>
+map <silent> <leader>sm2 :wa<cr> :!~/git-repo/hd-prg/client/start_mac.sh 2<cr><cr>
+map <silent> <leader>sm3 :wa<cr> :!~/git-repo/hd-prg/client/start_mac.sh 3<cr><cr>
 map <silent> <leader>sr :wa<cr> :!./nginx.sh<cr><cr>
 map <silent> <leader>st :wa<cr> :!./nginx.sh -s stop<cr><cr>
 
