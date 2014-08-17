@@ -61,6 +61,10 @@ alias sudo='sudo '
 alias ls='ls -al --color=auto'
 
 #############################################
+elif [[ $OS == CYGWIN* ]]; then
+alias ls='ls -al --color=auto'
+alias sudo=''
+export CYGWIN="winsymlinks:native"
 fi
 
 #############################################
