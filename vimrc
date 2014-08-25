@@ -27,17 +27,6 @@ let Tlist_Show_One_File = 1
 map <silent> <leader>nrt :NERDTreeToggle<cr> 
 map <silent> <leader>tlt :TlistToggle<cr> 
 map <silent> <leader>boc :bo copen<cr>
-map <silent> <leader>res :!(../tool/update_res_dir.sh)<cr>
-map <silent> <leader>si :wa<cr> :!~/git-repo/hd-prg/client/start_ios_sim.sh<cr>
-map <silent> <leader>sa :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh n 1<cr>
-map <silent> <leader>sa2 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh n 2<cr>
-map <silent> <leader>sa3 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh n 3<cr>
-map <silent> <leader>sb :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all 1<cr>
-map <silent> <leader>sb2 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all 2<cr>
-map <silent> <leader>sb3 :wa<cr> :!~/git-repo/hd-prg/client/start_android_sim.sh all 3<cr>
-map <silent> <leader>sm :wa<cr> :!~/git-repo/hd-prg/client/start_mac.sh 1<cr><cr>
-map <silent> <leader>sm2 :wa<cr> :!~/git-repo/hd-prg/client/start_mac.sh 2<cr><cr>
-map <silent> <leader>sm3 :wa<cr> :!~/git-repo/hd-prg/client/start_mac.sh 3<cr><cr>
 map <silent> <leader>sr :wa<cr> :!./nginx.sh<cr><cr>
 map <silent> <leader>st :wa<cr> :!./nginx.sh -s stop<cr><cr>
 
@@ -66,3 +55,7 @@ function! Search_Word()
 "	execute "echo 'a".r."b'"
 	execute "vimgrep /".r."/gj **/*.lua **/*.c **/*.cpp **/*.h"
 endfunction
+
+if filereadable("local.vim")
+    source local.vim
+endif
