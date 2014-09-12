@@ -38,6 +38,12 @@ function geny
     nohup ~/genymotion/player --vm-name "$device"&
 }
 
+function run_sshagent
+{
+    [ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent -s)
+    ssh-add
+}
+
 
 #############################################
 if [ "$OS" == "Darwin" ] ;then
@@ -66,8 +72,6 @@ alias ls='ls -al --color=auto'
 alias sudo=''
 export CYGWIN="winsymlinks:native"
 unset GIT_SSH
-echo $SSH_AUTO_SOCK
-[ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent -s)
 
 fi
 
