@@ -6,7 +6,7 @@ olddir=~/dotfiles_old
 rm -rf $olddir
 mkdir -p $olddir
 
-files="bash_profile bashrc inputrc vimrc vim tmux.conf tmux-localprg.sh gitconfig gitignore hgrc"    # list of files/folders to symlink in homedir
+files="bash_profile bashrc inputrc vimrc vim tmux.conf tmux-localprg.sh gitconfig hgrc"    # list of files/folders to symlink in homedir
 cd "$dir"
 for file in $files; do
 	mv -f ~/.$file ~/dotfiles_old/
