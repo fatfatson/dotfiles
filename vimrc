@@ -27,8 +27,6 @@ let Tlist_Show_One_File = 1
 map <silent> <leader>nrt :NERDTreeToggle<cr> 
 map <silent> <leader>tlt :TlistToggle<cr> 
 map <silent> <leader>boc :bo copen<cr>
-map <silent> <leader>sr :wa<cr> :!./nginx.sh<cr><cr>
-map <silent> <leader>st :wa<cr> :!./nginx.sh -s stop<cr><cr>
 
 colorscheme torte
 syntax on    
