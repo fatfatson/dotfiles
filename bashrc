@@ -38,6 +38,17 @@ function geny
     nohup ~/genymotion/player --vm-name "$device"&
 }
 
+function run_sshagent
+{
+    [ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent -s)
+    ssh-add
+}
+
+function run_goagent_tunnel
+{
+    nohup autossh -M 8087 -gN -L 9527:localhost:8087 -p 9527 -o ServerAliveInterval=60 wellbye@14.23.145.98  2>/dev/null &
+}
+
 
 #############################################
 if [ "$OS" == "Darwin" ] ;then
@@ -67,8 +78,6 @@ alias ls='ls -al --color=auto'
 alias sudo=''
 export CYGWIN="winsymlinks:native"
 unset GIT_SSH
-echo $SSH_AUTO_SOCK
-[ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent -s)
 
 fi
 
