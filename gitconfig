@@ -3,7 +3,6 @@
 	email = wellbye@163.com
 [core]
 	quotepath = false
-	excludesfile = ~/.gitignore
 	editor = vim
 [alias]
 	st = status -uno

@@ -51,6 +51,7 @@ check_and_run /opt/local/share/git-core/git-prompt.sh
 alias ctags="`brew --prefix`/bin/ctags"
 alias ls='ls -alG'
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+export PATH=/usr/local/bin:$PATH #macos默认把/usr/local/bin放在/usr/bin后面，这里要把它换过来以支持自定义安装的程序优先
 
 #############################################
 elif [ "$OS" == "Linux" ] ;then
