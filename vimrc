@@ -7,19 +7,21 @@ imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-l> <Right>
 map ; :
-map <silent> <leader>ss :source ~/.vimrc<cr>
-map <silent> <leader>ee :e ~/.vimrc<cr>
-map <silent> <leader>. ,be
-map <silent> <leader>rd :edit<cr>
-autocmd! bufwritepost .vimrc source ~/.vimrc
-autocmd! vimenter * NERDTree
+map ' "
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-W>l
 map <C-s> :wa<cr>
-map ' "
+map <silent> <leader>ss :source ~/.vimrc<cr>
+map <silent> <leader>ee :e ~/.vimrc<cr>
+map <silent> <leader>. ,be
+map <silent> <leader>rd :edit<cr>
+map <silent> <leader>ff :exe "!syscopy.sh" expand('%:p')<cr>
+
 "cmap w!! w !sudo dd of=%<cr>
+autocmd! bufwritepost .vimrc source ~/.vimrc
+autocmd! vimenter * NERDTree
 
 let Tlist_Use_Right_Window = 1
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'

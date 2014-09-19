@@ -57,8 +57,9 @@ if [ "$OS" == "Darwin" ] ;then
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
-check_and_run /opt/local/etc/bash_completion
-check_and_run /opt/local/share/git-core/git-prompt.sh
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
 alias ctags="`brew --prefix`/bin/ctags"
 alias ls='ls -alG'
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
