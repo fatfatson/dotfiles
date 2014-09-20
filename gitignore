@@ -10,10 +10,18 @@
 *.suo
 *.pkl
 *.orig
-*/proj.android/bin/*
-*/proj.android/gen/*
-*/proj.android/obj/*
+*.sdf
+*.opensdf
+*.vcxproj.user
+**/.*
+*/proj.*/bin/*
+*/proj.*/gen/*
+*/proj.*/obj/*
 */proj.android/libs/*
+*/proj.win32/Debug.win32
+*/proj.win32/Debug
+*/proj.win32/Release.win32
+*/proj.win32/Release
 *xcuserdata*
 *.xccheckout
 *.metadata/
@@ -25,6 +33,7 @@ server/udata/
 server/res*
 hd-redis/
 resource_server/res/
+nohup.out
 
 # Packages #
 ############
