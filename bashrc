@@ -59,7 +59,7 @@ function tmsp
 if [ "$OS" == "Darwin" ] ;then
 
 # MacPorts Installer addition on 2013-04-14_at_16:00:44: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/usr/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then

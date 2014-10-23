@@ -59,3 +59,5 @@ endfunction
 if filereadable("local.vim")
     source local.vim
 endif
+
+set clipboard=unnamed
