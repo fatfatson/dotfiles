@@ -90,3 +90,4 @@ fi
 #############################################
 
 alias tmuxk='tmux kill-server'
+alias tmuxa='tmux attach'
