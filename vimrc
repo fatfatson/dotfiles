@@ -19,7 +19,7 @@ map <silent> <leader>. ,be
 map <silent> <leader>rd :edit<cr>
 map <silent> <leader>ff :exe "!syscopy.sh" expand('%:p')<cr>
 
-"cmap w!! w !sudo dd of=%<cr>
+cmap w!! w !sudo dd of=%<cr>
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! vimenter * NERDTree
 
