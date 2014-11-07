@@ -18,7 +18,13 @@ Host dianyou
 	ServerAliveInterval 60
 
 Host suyu
-    HostName 192.168.1.3
+    HostName suyu.19v5.com
+    ForwardAgent yes
+    User wellbye
+	ServerAliveInterval 60
+
+Host linb
+    HostName linb.19v5.com
     ForwardAgent yes
     User wellbye
 	ServerAliveInterval 60
