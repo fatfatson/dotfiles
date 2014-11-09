@@ -1,31 +1,33 @@
+ForwardAgent yes
+
 Host wh
     HostName wh.19v5.com
-    ForwardAgent yes
     User wellbye
 	ServerAliveInterval 60
 
 Host ali
     HostName ali.19v5.com
-    ForwardAgent yes
     User wellbye
 	ServerAliveInterval 60
 
 Host dianyou
     HostName 14.23.145.98
-    ForwardAgent yes
     Port 9527
     User wellbye
 	ServerAliveInterval 60
 
 Host suyu
     HostName suyu.19v5.com
-    ForwardAgent yes
     User wellbye
 	ServerAliveInterval 60
 
 Host linb
     HostName linb.19v5.com
-    ForwardAgent yes
+    User wellbye
+	ServerAliveInterval 60
+
+Host test1
+    HostName 192.168.1.20
     User wellbye
 	ServerAliveInterval 60
 
@@ -37,5 +39,4 @@ Host imac
 
 Host pi
     HostName 192.168.0.5
-    ForwardAgent yes
     User pi
