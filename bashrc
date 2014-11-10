@@ -46,7 +46,8 @@ function run_sshagent
 
 function run_goagent_tunnel
 {
-    sudo autossh -M 20000  -gN -L 9527:ali.19v5.com:8087 -o ServerAliveInterval=60 wellbye@ali.19v5.com 2>/dev/null &
+    #sudo autossh -M 20000  -gN -L 9527:127.0.0.1:8087 -o ServerAliveInterval=60 wellbye@14.23.145.102 2>/dev/null &
+    ssh -N -L 9527:0.0.0.0:8087 -o ServerAliveInterval=60 -o PreferredAuthentications=password goagent@14.23.145.102
 }
 
 function tmsp
