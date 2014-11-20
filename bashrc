@@ -27,6 +27,11 @@ function adbs
     adb $device $@
 }
 
+function adbi
+{
+    adb install -r $1
+}
+
 function geny
 {
     if [ x$1 == x ]; then
