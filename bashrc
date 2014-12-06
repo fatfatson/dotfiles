@@ -46,7 +46,7 @@ function run_sshagent
 
 function run_goagent_tunnel
 {
-    sudo autossh -M 20000  -gN -L 9527:ali.19v5.com:8087 -o ServerAliveInterval=60 wellbye@ali.19v5.com 2>/dev/null &
+    autossh -M 20000  -gN -L 9527:ali.19v5.com:8087 -o ServerAliveInterval=60 wellbye@ali.19v5.com 2>/dev/null &
 }
 
 function tmsp
@@ -58,9 +58,6 @@ function tmsp
 #############################################
 if [ "$OS" == "Darwin" ] ;then
 
-# MacPorts Installer addition on 2013-04-14_at_16:00:44: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/usr/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
@@ -68,7 +65,6 @@ fi
 alias ctags="`brew --prefix`/bin/ctags"
 alias ls='ls -alG'
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-export PATH=/usr/local/bin:$PATH #macos默认把/usr/local/bin放在/usr/bin后面，这里要把它换过来以支持自定义安装的程序优先
 
 #############################################
 elif [ "$OS" == "Linux" ] ;then
@@ -91,3 +87,4 @@ fi
 
 alias tmuxk='tmux kill-server'
 alias tmuxa='tmux attach'
+export PATH=/usr/local/sbin:$PATH
