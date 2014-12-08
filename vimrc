@@ -60,4 +60,4 @@ if filereadable("local.vim")
     source local.vim
 endif
 
-set clipboard=unnamed
+"set clipboard=unnamed
