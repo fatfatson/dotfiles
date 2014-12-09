@@ -48,12 +48,12 @@ set statusline=%m\ %F\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [L
 filetype plugin indent on  
 
 nmap <leader>vg ;vimgrep //gj **/*.lua
-nmap <silent> <leader>fd :call Search_Word()<CR>:bo copen<CR>
-function! Search_Word()
+nmap <silent> <leader>fd :call Search_Word("")<CR>:bo copen<CR>
+function! Search_Word(dir)
 	let w =	expand("<cword>")
 	let r =	substitute(w, '^ \(.\{-}\) $', '\1', '')
 "	execute "echo 'a".r."b'"
-	execute "vimgrep /".r."/gj **/*.lua **/*.c **/*.cpp **/*.h"
+	execute "vimgrep /".r."/gj ".a:dir."**/*.lua **/*.c **/*.cpp **/*.h"
 endfunction
 
 if filereadable("local.vim")
