@@ -51,7 +51,7 @@ function run_sshagent
 
 function run_goagent_tunnel
 {
-    ssh -N -L 9527:0.0.0.0:8087 -o ServerAliveInterval=60 -o PreferredAuthentications=password goagent@14.23.145.102
+    autossh -M 20000 -N -L 9527:0.0.0.0:8087 -o ServerAliveInterval=60 goagent@14.23.145.102 2>/dev/null &
 }
 
 function tmsp
@@ -92,4 +92,4 @@ fi
 
 alias tmuxk='tmux kill-server'
 alias tmuxa='tmux attach'
-export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin/:$PATH
