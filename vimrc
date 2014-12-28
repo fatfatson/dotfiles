@@ -53,7 +53,7 @@ function! Search_Word(dir)
 	let w =	expand("<cword>")
 	let r =	substitute(w, '^ \(.\{-}\) $', '\1', '')
 "	execute "echo 'a".r."b'"
-	execute "vimgrep /".r."/gj ".a:dir."**/*.lua **/*.c **/*.cpp **/*.h"
+	execute "vimgrep /".r."/gj ".a:dir."**/*.lua **/*.c **/*.cpp **/*.h **/*.java **/*.sh"
 endfunction
 
 
@@ -108,3 +108,4 @@ endif
 set tags+=/Users/abc/.vim/tags
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 let g:SuperTabDefaultCompletionType = 'context'
+"autocmd BufEnter * call DoWordComplete() 

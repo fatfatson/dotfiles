@@ -1,0 +1,6 @@
+[submodule "vim/bundle/easytags"]
+	path = vim/bundle/easytags
+	url = https://github.com/xolox/vim-easytags.git
+[submodule "vim/bundle/misc"]
+	path = vim/bundle/misc
+	url = https://github.com/xolox/vim-misc.git

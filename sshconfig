@@ -38,5 +38,6 @@ Host imac
 	PreferredAuthentications keyboard-interactive
 
 Host pi
-    HostName 192.168.0.5
+#HostName 192.168.0.5
+    HostName wellbye.eicp.net
     User pi
