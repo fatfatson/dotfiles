@@ -11,7 +11,7 @@ function check_and_run
 #去掉文件每一行最后的0x0d
 function trimd
 {
-    sed  -ibak 's/\x0d$//g' $@
+    sed  -i "s/\r\$//g" $@
 }
 
 function adbs
@@ -69,6 +69,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 alias ctags="`brew --prefix`/bin/ctags"
 alias ls='ls -alG'
+alias sed=gsed
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
 #############################################
