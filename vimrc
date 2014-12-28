@@ -46,6 +46,7 @@ set hlsearch
 set noswapfile
 set statusline=%m\ %F\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 filetype plugin indent on  
+execute pathogen#infect()
 
 nmap <leader>vg ;vimgrep //gj **/*.lua
 nmap <silent> <leader>fd :call Search_Word("")<CR>:bo copen<CR>
