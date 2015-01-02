@@ -4,3 +4,6 @@
 [submodule "vim/bundle/misc"]
 	path = vim/bundle/misc
 	url = https://github.com/xolox/vim-misc.git
+[submodule "vim/bundle/aftercolors"]
+	path = vim/bundle/aftercolors
+	url = https://github.com/vim-scripts/AfterColors.vim.git
