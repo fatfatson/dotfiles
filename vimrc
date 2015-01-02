@@ -30,8 +30,9 @@ map <silent> <leader>nrt :NERDTreeToggle<cr>
 map <silent> <leader>tlt :TlistToggle<cr> 
 map <silent> <leader>boc :bo copen<cr>
 
-colorscheme torte
+
 syntax on    
+colorscheme torte
 set autoread
 set number  
 set cursorline
@@ -104,9 +105,5 @@ if filereadable("local.vim")
     source local.vim
 endif
 
-"set clipboard=unnamed
-"Added by android-vim:
-set tags+=/Users/abc/.vim/tags
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-let g:SuperTabDefaultCompletionType = 'context'
 "autocmd BufEnter * call DoWordComplete() 
