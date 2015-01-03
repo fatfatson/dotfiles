@@ -7,3 +7,6 @@
 [submodule "vim/bundle/aftercolors"]
 	path = vim/bundle/aftercolors
 	url = https://github.com/vim-scripts/AfterColors.vim.git
+[submodule "vim/bundle/youcompleteme"]
+	path = vim/bundle/youcompleteme
+	url = https://github.com/Valloric/YouCompleteMe.git
