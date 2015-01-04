@@ -19,15 +19,16 @@ map <silent> <leader>ee :e ~/.vimrc<cr>
 map <silent> <leader>. ,be
 map <silent> <leader>rd :edit<cr>
 map <silent> <leader>ff :exe "!syscopy.sh" expand('%:p')<cr>
+map <silent> <leader>jd :YcmCompleter GoToDeclaration<cr>
 
 cmap w!! w !sudo dd of=%<cr>
 autocmd! bufwritepost .vimrc source ~/.vimrc
-autocmd! vimenter * NERDTree
+"autocmd! vimenter * NERDTree
 
 let Tlist_Use_Right_Window = 1
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 let Tlist_Show_One_File = 1
-let g:easytags_cmd = '/usr/local/bin/ctags'
+"let g:TagHighlightSettings['CtagsExecutable']='/usr/local/bin/ctags'
 map <silent> <leader>nrt :NERDTreeToggle<cr> 
 map <silent> <leader>tlt :TlistToggle<cr> 
 map <silent> <leader>boc :bo copen<cr>
