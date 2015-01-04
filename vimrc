@@ -27,6 +27,7 @@ autocmd! vimenter * NERDTree
 let Tlist_Use_Right_Window = 1
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 let Tlist_Show_One_File = 1
+let g:easytags_cmd = '/usr/local/bin/ctags'
 map <silent> <leader>nrt :NERDTreeToggle<cr> 
 map <silent> <leader>tlt :TlistToggle<cr> 
 map <silent> <leader>boc :bo copen<cr>
@@ -36,6 +37,7 @@ syntax on
 colorscheme torte
 hi Pmenu ctermfg=Cyan ctermbg=Blue cterm=None guifg=Cyan guibg=DarkBlue
 
+set completeopt-=preview
 set autoread
 set number  
 set cursorline
