@@ -16,3 +16,6 @@
 [submodule "vim/bundle/Vim-JDE"]
 	path = vim/bundle/Vim-JDE
 	url = https://github.com/vim-scripts/Vim-JDE.git
+[submodule "vim/bundle/javacomplete"]
+	path = vim/bundle/javacomplete
+	url = https://github.com/adragomir/javacomplete.git
