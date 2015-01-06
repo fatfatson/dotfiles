@@ -20,6 +20,7 @@ map <silent> <leader>. ,be
 map <silent> <leader>rd :edit<cr>
 map <silent> <leader>ff :exe "!syscopy.sh" expand('%:p')<cr>
 map <silent> <leader>jd :YcmCompleter GoToDeclaration<cr>
+map <silent> <leader>rj :wa<cr>:!clear && javac %<cr>:!java -classpath %:p:h %:t:r<cr>
 
 cmap w!! w !sudo dd of=%<cr>
 autocmd! bufwritepost .vimrc source ~/.vimrc
@@ -39,6 +40,7 @@ hi Pmenu ctermfg=Cyan ctermbg=Blue cterm=None guifg=Cyan guibg=DarkBlue
 
 set nocompatible
 set completeopt-=preview
+set hidden
 set autoread
 set number  
 set cursorline

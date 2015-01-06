@@ -26,6 +26,7 @@ function adbs
     shift
     adb $device $@
 }
+export -f adbs
 
 function adbi
 {
