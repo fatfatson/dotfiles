@@ -8,6 +8,7 @@ imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-l> <Right>
 map ; :
+noremap <C-;> ;
 map ' "
 map <C-h> <C-W>h
 map <C-j> <C-W>j
