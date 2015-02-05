@@ -113,5 +113,11 @@ if filereadable("local.vim")
     source local.vim
 endif
 
-autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-"autocmd BufEnter * call DoWordComplete() 
+let g:EclimLogLevel = 'trace'
+let g:EclimCompletionMethod = 'omnifunc'
+
+
+
+"autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+"setlocal omnifunc=javacomplete#Complete
+"map <leader>b :call javacomplete#GoToDefinition()<CR>
