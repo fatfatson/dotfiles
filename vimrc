@@ -21,6 +21,7 @@ set noswapfile
 set statusline=%m\ %F\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 filetype plugin indent on  
 
+let mapleader = ","
 imap <C-f> <ESC>
 vmap <C-f> <ESC>
 nmap <C-f> <ESC>
@@ -53,7 +54,6 @@ map <leader>jd :JavaSearchContext<CR>
 autocmd! vimenter * call My_StartUp()
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
-let mapleader = ","
 let Tlist_Use_Right_Window = 1
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 let Tlist_Show_One_File = 1
