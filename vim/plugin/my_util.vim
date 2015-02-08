@@ -1,3 +1,8 @@
+function! My_StartUp()
+    if 0 == argc()
+        NERDTree
+    end
+endfunction
 
 " helper function to toggle hex mode
 function! ToggleHex()

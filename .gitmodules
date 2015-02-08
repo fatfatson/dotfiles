@@ -16,3 +16,6 @@
 [submodule "vim/bundle/vim-android"]
 	path = vim/bundle/vim-android
 	url = https://github.com/hsanson/vim-android.git
+[submodule "vim/bundle/taglist"]
+	path = vim/bundle/taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
