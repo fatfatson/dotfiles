@@ -33,6 +33,7 @@ let Tlist_Show_One_File = 1
 map <silent> <leader>nrt :NERDTreeToggle<cr> 
 map <silent> <leader>tlt :TlistToggle<cr> 
 map <silent> <leader>boc :bo copen<cr>
+map <leader>jd :JavaSearchContext<CR>
 
 
 syntax on    
@@ -73,3 +74,4 @@ endif
 
 "let g:EclimLogLevel = 'trace'
 let g:EclimCompletionMethod = 'omnifunc'
+let g:ConqueTerm_CWInsert = 1
