@@ -50,6 +50,8 @@ map <silent> <leader>nrt :NERDTreeToggle<cr>
 map <silent> <leader>tlt :TlistToggle<cr> 
 map <silent> <leader>boc :bo copen<cr>
 map <leader>jd :JavaSearchContext<CR>
+map <leader>cd :YcmCompleter GoToDeclaration<CR>
+map <leader>ci :YcmCompleter GoToDefinition<CR>
 
 autocmd! vimenter * call My_StartUp()
 autocmd! bufwritepost .vimrc source ~/.vimrc
@@ -61,14 +63,6 @@ let g:EclimCompletionMethod = 'omnifunc'
 let g:ConqueTerm_CWInsert = 1
 "let g:EclimLogLevel = 'trace'
 
-
-
-function! Search_Word(dir)
-	let w =	expand("<cword>")
-	let r =	substitute(w, '^ \(.\{-}\) $', '\1', '')
-"	execute "echo 'a".r."b'"
-	execute "vimgrep /".r."/gj ".a:dir."**/*.lua **/*.c **/*.cpp **/*.h **/*.java **/*.sh"
-endfunction
 
 
 if filereadable("local.vim")

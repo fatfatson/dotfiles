@@ -4,6 +4,13 @@ function! My_StartUp()
     end
 endfunction
 
+function! Search_Word(dir)
+	let w =	expand("<cword>")
+	let r =	substitute(w, '^ \(.\{-}\) $', '\1', '')
+"	execute "echo 'a".r."b'"
+	execute "vimgrep /".r."/gj ".a:dir."**/*.lua **/*.c **/*.cpp **/*.h **/*.java **/*.sh"
+endfunction
+
 " helper function to toggle hex mode
 function! ToggleHex()
   " hex mode should be considered a read-only operation
