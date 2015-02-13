@@ -1,6 +1,6 @@
-*/android/bin*
-*/android/gen*
-*/android/build*
+*/android/bin/*
+*/android/gen/*
+*/android/build/*
 *xcuserdata*
 *.xccheckout
 *.metadata/
