@@ -54,6 +54,7 @@ map <leader>cd :YcmCompleter GoToDeclaration<CR>
 map <leader>ci :YcmCompleter GoToDefinition<CR>
 
 autocmd! vimenter * call My_StartUp()
+autocmd! BufNewFile,BufRead *.story set syntax=lua
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
 let Tlist_Use_Right_Window = 1
