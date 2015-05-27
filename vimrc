@@ -54,6 +54,7 @@ map <leader>cd :YcmCompleter GoToDeclaration<CR>
 map <leader>ci :YcmCompleter GoToDefinition<CR>
 
 autocmd! vimenter * call My_StartUp()
+autocmd! bufenter *.story set ft=lua
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
 let Tlist_Use_Right_Window = 1
@@ -62,8 +63,6 @@ let Tlist_Show_One_File = 1
 let g:EclimCompletionMethod = 'omnifunc'
 let g:ConqueTerm_CWInsert = 1
 "let g:EclimLogLevel = 'trace'
-
-
 
 if filereadable("local.vim")
     source local.vim
