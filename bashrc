@@ -30,7 +30,11 @@ export -f adbs
 
 function adbi
 {
-    adb install -r $1
+    if [ x$2 == x ]; then
+        adb install -r $1
+    else
+        adbs $1 install -r $2
+    fi
 }
 
 function geny
