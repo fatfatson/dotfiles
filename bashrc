@@ -52,7 +52,7 @@ function run_sshagent
 
 function run_goagent_tunnel
 {
-    autossh -M 20000 -N -L 9527:0.0.0.0:3128 -o ServerAliveInterval=60 wellbye@mmdai.org 2>/dev/null &
+    autossh -M 20000 -gN -L 9527:0.0.0.0:3128 -o ServerAliveInterval=60 wellbye@mmdai.org 2>/dev/null &
 }
 
 function tmsp
