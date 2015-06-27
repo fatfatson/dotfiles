@@ -8,6 +8,13 @@ function check_and_run
     fi
 }
 
+function iconvFile
+{
+    cf=${1:-gbk}
+    ct=${1:-utf8}
+    for i in $1; do iconv -f cf -t ct ${i} > ${i}.bak; mv ${i}.bak ${i}; done
+}
+
 #去掉文件每一行最后的0x0d
 function trimd
 {
