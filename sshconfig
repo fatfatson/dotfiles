@@ -1,23 +1,17 @@
 ForwardAgent yes
 
+Host hk
+    HostName xw.mmdai.org
+    User wellbye
+	ServerAliveInterval 60
+
 Host mmd
     HostName mmdai.org
     User wellbye
 	ServerAliveInterval 60
 
-Host wh
-    HostName wh.19v5.com
-    User wellbye
-	ServerAliveInterval 60
-
 Host ali
     HostName ali.19v5.com
-    User wellbye
-	ServerAliveInterval 60
-
-Host dianyou
-    HostName 14.23.145.98
-    Port 9527
     User wellbye
 	ServerAliveInterval 60
 
