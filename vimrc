@@ -13,8 +13,8 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 set autoindent 
-set smartindent
 set cindent 
+set smartindent
 set nobackup    
 set hlsearch
 set noswapfile
@@ -56,6 +56,14 @@ map <leader>ci :YcmCompleter GoToDefinition<CR>
 autocmd! vimenter * call My_StartUp()
 autocmd! bufenter *.story set ft=lua
 autocmd! bufwritepost .vimrc source ~/.vimrc
+autocmd BufNewFile,BufRead *.py
+\setlocal tabstop=4
+\setlocal softtabstop=4
+\setlocal shiftwidth=4
+\setlocal textwidth=80
+\setlocal smarttab
+\setlocal expandtab
+
 
 let Tlist_Use_Right_Window = 1
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
