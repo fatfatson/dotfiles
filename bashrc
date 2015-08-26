@@ -10,9 +10,9 @@ function check_and_run
 
 function iconvFile
 {
-    cf=${1:-gbk}
-    ct=${1:-utf8}
-    for i in $1; do iconv -f cf -t ct ${i} > ${i}.bak; mv ${i}.bak ${i}; done
+    cf=gbk
+    ct=utf8
+    for i in $1; do iconv -f $cf -t $ct ${i} > ${i}.bak; mv ${i}.bak ${i}; done
 }
 
 #去掉文件每一行最后的0x0d
@@ -63,7 +63,7 @@ function run_sshagent
 
 function run_goagent_tunnel
 {
-    autossh -M 20000 -gN -L 9527:0.0.0.0:3128 -o ServerAliveInterval=60 goagent@xw.mmdai.org 2>/dev/null &
+    autossh -M 0 -gN -L 9527:0.0.0.0:3128 -o ServerAliveInterval=60 goagent@xw.mmdai.org 2>/dev/null &
 }
 
 function tmsp
@@ -83,6 +83,7 @@ alias ctags="`brew --prefix`/bin/ctags"
 alias ls='ls -alG'
 alias sed=gsed
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+export hkproxy="http_proxy=127.0.0.1:9527 https_proxy=127.0.0.1:9527"
 
 #############################################
 elif [ "$OS" == "Linux" ] ;then
