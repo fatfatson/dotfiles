@@ -71,6 +71,10 @@ function tmsp
     tmux split $1 -c $PWD
 }
 
+function hkp_do
+{
+    http_proxy=http://127.0.0.1:9527 https_proxy=http://127.0.0.1:9527 $@
+}
 
 #############################################
 if [ "$OS" == "Darwin" ] ;then
@@ -83,7 +87,6 @@ alias ctags="`brew --prefix`/bin/ctags"
 alias ls='ls -alG'
 alias sed=gsed
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-export hkproxy="http_proxy=127.0.0.1:9527 https_proxy=127.0.0.1:9527"
 
 #############################################
 elif [ "$OS" == "Linux" ] ;then
