@@ -4,11 +4,15 @@ function! My_StartUp()
     end
 endfunction
 
-function! Search_Word(dir)
+function! Search_Word(place)
 	let w =	expand("<cword>")
+    "去掉前后空格
 	let r =	substitute(w, '^ \(.\{-}\) $', '\1', '')
 "	execute "echo 'a".r."b'"
-	execute "vimgrep /".r."/gj ".a:dir."**/*.lua **/*.c **/*.cpp **/*.h **/*.java **/*.sh"
+	let cmd = "vimgrep /".r."/gj ".a:place
+    echo cmd
+    execute(cmd)
+
 endfunction
 
 " helper function to toggle hex mode

@@ -31,7 +31,7 @@ imap <C-k> <Up>
 imap <C-l> <Right>
 cmap w!! w !sudo dd of=%<cr>
 nmap <leader>vg ;vimgrep //gj **/*.lua
-nmap <silent> <leader>fd :call Search_Word("")<CR>:bo copen<CR>
+"nmap <silent> <leader>fd :call Search_Word("")<CR>:bo copen<CR>
 map ; :
 map ' "
 map <C-h> <C-W>h
@@ -44,7 +44,6 @@ map <silent> <leader>ee :e ~/.vimrc<cr>
 map <silent> <leader>. ,be
 map <silent> <leader>rd :edit<cr>
 map <silent> <leader>ff :exe "!syscopy.sh" expand('%:p')<cr>
-map <silent> <leader>jd :YcmCompleter GoToDeclaration<cr>
 map <silent> <leader>rj :wa<cr>:!clear && javac %<cr>:!java -classpath %:p:h %:t:r<cr>
 map <silent> <leader>nrt :NERDTreeToggle<cr> 
 map <silent> <leader>tlt :TlistToggle<cr> 
@@ -58,7 +57,6 @@ inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-d> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
 inoremap <expr> <C-u> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
-imap <tab><tab> <c-x><c-o>
 
 
 
