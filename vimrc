@@ -53,6 +53,15 @@ map <leader>jd :JavaSearchContext<CR>
 map <leader>cd :YcmCompleter GoToDeclaration<CR>
 map <leader>ci :YcmCompleter GoToDefinition<CR>
 
+inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-d> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
+inoremap <expr> <C-u> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
+imap <tab><tab> <c-x><c-o>
+
+
+
 autocmd! vimenter * call My_StartUp()
 autocmd! bufenter *.story set ft=lua
 autocmd! bufwritepost .vimrc source ~/.vimrc
@@ -71,6 +80,8 @@ let Tlist_Show_One_File = 1
 let g:EclimCompletionMethod = 'omnifunc'
 let g:ConqueTerm_CWInsert = 1
 "let g:EclimLogLevel = 'trace'
+"let g:ycm_filetype_whitelist = { 'cpp': 1, 'c': 1, 'python':1 }
+
 
 if filereadable("local.vim")
     source local.vim

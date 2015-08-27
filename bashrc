@@ -10,9 +10,9 @@ function check_and_run
 
 function iconvFile
 {
-    cf=${1:-gbk}
-    ct=${1:-utf8}
-    for i in $1; do iconv -f cf -t ct ${i} > ${i}.bak; mv ${i}.bak ${i}; done
+    cf=gbk
+    ct=utf8
+    for i in $1; do iconv -f $cf -t $ct ${i} > ${i}.bak; mv ${i}.bak ${i}; done
 }
 
 #去掉文件每一行最后的0x0d
@@ -71,6 +71,10 @@ function tmsp
     tmux split $1 -c $PWD
 }
 
+function hkp_do
+{
+    http_proxy=http://127.0.0.1:9527 https_proxy=http://127.0.0.1:9527 $@
+}
 
 #############################################
 if [ "$OS" == "Darwin" ] ;then
