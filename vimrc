@@ -52,8 +52,8 @@ map <leader>jd :JavaSearchContext<CR>
 map <leader>cd :YcmCompleter GoToDeclaration<CR>
 map <leader>ci :YcmCompleter GoToDefinition<CR>
 
-inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-d> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
 inoremap <expr> <C-u> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
@@ -83,4 +83,6 @@ let g:ConqueTerm_CWInsert = 1
 
 if filereadable("local.vim")
     source local.vim
+elseif filereadable("tool/local.vim")
+    source tool/local.vim
 endif

@@ -1,5 +1,33 @@
 OS=$(uname)
 
+function find_top_dir
+{
+    if [ -n "$top_dir" ]; then
+        return 0
+    fi
+
+    this_dir=$(cd $(dirname $0) && pwd)
+    target=$1
+    while [ ! -d $target ]
+    do
+        cd ..
+        if [ "`pwd`" == "/" ]; then 
+            break 
+        fi
+    done
+
+    if [ `pwd` == / ]; then
+        echo "*** Can't find top_dir which contains $target ***"
+        exit 1
+    else
+        top_dir=`pwd`
+        export top_dir
+        echo "*** top_dir found: $top_dir ***"
+    fi
+}
+export -f find_top_dir
+
+
 function check_and_run
 {
 	if [ -f $1 ]
