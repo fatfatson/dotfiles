@@ -5,6 +5,7 @@
 	quotepath = false
 	editor = vim
 	excludesfile = /Users/abc/.gitignore_global
+	filemode = false
 [alias]
 	st = status -uno
 	stu = status 
