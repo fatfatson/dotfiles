@@ -24,6 +24,8 @@ Host suyu
     HostName suyu.19v5.com
     User wellbye
 	ServerAliveInterval 60
+    StrictHostKeyChecking no
+
 
 Host linb
     HostName linb.19v5.com

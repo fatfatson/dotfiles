@@ -91,7 +91,8 @@ function run_sshagent
 
 function run_goagent_tunnel
 {
-    autossh -M 0 -gN -L 9527:0.0.0.0:3128 -o ServerAliveInterval=60 goagent@xw.mmdai.org 2>/dev/null &
+    ps aux | grep ssh | grep 9527 | grep 3128 | awk '{print $2;}' | xargs kill -9
+    autossh -M 0 -gN -L 9527:0.0.0.0:3128 -o ServerAliveInterval=60 goagent@mmdai.org 2>/dev/null &
 }
 
 function tmsp
