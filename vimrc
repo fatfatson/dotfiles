@@ -1,4 +1,6 @@
 execute pathogen#infect()
+"set runtimepath-=~/.vim/bundle/youcompleteme
+
 
 syntax on    
 colorscheme torte
@@ -49,8 +51,10 @@ map <silent> <leader>nrt :NERDTreeToggle<cr>
 map <silent> <leader>tlt :TlistToggle<cr> 
 map <silent> <leader>boc :bo copen<cr>
 map <leader>jd :JavaSearchContext<CR>
-map <leader>cd :YcmCompleter GoToDeclaration<CR>
-map <leader>ci :YcmCompleter GoToDefinition<CR>
+map <leader>cdec :YcmCompleter GoToDeclaration<CR>
+map <leader><C-d> :YcmCompleter GoToDeclaration<CR>
+map <leader>cdef :YcmCompleter GoToDefinition<CR>
+map <leader>ci :YcmCompleter GoToInclude<CR>
 
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
@@ -79,6 +83,8 @@ let g:EclimCompletionMethod = 'omnifunc'
 let g:ConqueTerm_CWInsert = 1
 "let g:EclimLogLevel = 'trace'
 "let g:ycm_filetype_whitelist = { 'cpp': 1, 'c': 1, 'python':1 }
+let g:ycm_server_log_level = 'debug'
+
 
 
 if filereadable("local.vim")

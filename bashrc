@@ -2,11 +2,11 @@ OS=$(uname)
 
 function find_top_dir
 {
+    this_dir=$(cd $(dirname $0) && pwd)
     if [ -n "$top_dir" ]; then
         return 0
     fi
 
-    this_dir=$(cd $(dirname $0) && pwd)
     target=$1
     while [ ! -d $target ]
     do
