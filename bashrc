@@ -129,7 +129,8 @@ alias ls='ls -al --color=auto'
 elif [[ $OS == CYGWIN* ]]; then
 alias ls='ls -al --color=auto'
 alias sudo=''
-export CYGWIN="winsymlinks"
+#export CYGWIN="winsymlinks"
+export CYGWIN=winsymlinks:native
 export JAVA_HOME="/cygdrive/c/Program Files (x86)/Java/jdk1.8.0_31"
 export PATH=$PATH:"/cygdrive/c/Program Files (x86)/Java/jdk1.8.0_31/bin"
 unset GIT_SSH
