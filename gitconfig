@@ -16,6 +16,8 @@
 	di = diff --no-ext-diff
 	dic = diff --no-ext-diff --cached
     logn = log --name-status
+	ci = commit
+	ro = remote
 
 [push]
 	default = current

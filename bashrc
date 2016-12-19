@@ -16,13 +16,13 @@ function find_top_dir
        fi
     fi
 
+    origin_dir=`pwd`
     target=$1
-    echo "find top dir for:"$target abc
-    echo "current:`pwd`" 
-    [ -d "tool2" ] && echo 1
+    echo current:`pwd`, find:$target 
+
     while [ ! -d $target ]
     do
-        echo `pwd`
+        #echo `pwd`
         cd ..
         if [ "`pwd`" == "/" ]; then 
             break 
