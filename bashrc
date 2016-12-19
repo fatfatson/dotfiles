@@ -1,15 +1,28 @@
 OS=$(uname)
 
+function reload-bashrc
+{
+    source ~/.bashrc
+}
+
 function find_top_dir
 {
-    this_dir=$(cd $(dirname $0) && pwd)
-    if [ -n "$top_dir" ]; then
-        return 0
+    if [ "$0" == "-bash" ]; then
+       this_dir=`pwd`
+    else
+       this_dir=$(cd $(dirname $0) && pwd)
+       if [ -n "$top_dir" ]; then
+            return 0
+       fi
     fi
 
     target=$1
+    echo "find top dir for:"$target abc
+    echo "current:`pwd`" 
+    [ -d "tool2" ] && echo 1
     while [ ! -d $target ]
     do
+        echo `pwd`
         cd ..
         if [ "`pwd`" == "/" ]; then 
             break 
@@ -17,8 +30,10 @@ function find_top_dir
     done
 
     if [ `pwd` == / ]; then
-        echo "*** Can't find top_dir which contains $target ***"
-        exit 1
+        echo "*** Cannot find top_dir which contains:" $target "***"
+        cd $this_dir
+        #echo "aaaaaa"
+        return 1
     else
         top_dir=`pwd`
         export top_dir
@@ -142,3 +157,7 @@ fi
 alias tmuxk='tmux kill-server'
 alias tmuxa='tmux attach'
 export PATH=/usr/local/sbin:/usr/local/bin/:$PATH
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+#export SDKMAN_DIR="/home/admin/.sdkman"
+#[[ -s "/home/admin/.sdkman/bin/sdkman-init.sh" ]] && source "/home/admin/.sdkman/bin/sdkman-init.sh"
