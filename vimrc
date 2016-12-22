@@ -44,6 +44,7 @@ map <C-s> :wa<cr>
 map <silent> <leader>ss :source ~/.vimrc<cr>
 map <silent> <leader>ee :e ~/.vimrc<cr>
 map <silent> <leader>. ,be
+map <silent> <leader>dw :redraw!<cr>
 map <silent> <leader>rd :edit<cr>
 map <silent> <leader>ff :exe "!syscopy.sh" expand('%:p')<cr>
 map <silent> <leader>rj :wa<cr>:!clear && javac %<cr>:!java -classpath %:p:h %:t:r<cr>

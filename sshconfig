@@ -1,5 +1,8 @@
 ForwardAgent yes
 
+Host *
+    PubkeyAcceptedKeyTypes=+ssh-dss
+
 Host hz
     HostName 58.215.161.12
     User wellbye

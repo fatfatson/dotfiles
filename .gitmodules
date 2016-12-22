@@ -28,3 +28,6 @@
 [submodule "vim/bundle/vim-lua-indent"]
 	path = vim/bundle/vim-lua-indent
 	url = https://github.com/raymond-w-ko/vim-lua-indent.git
+[submodule "vim/bundle/YouCompleteMe"]
+	path = vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
