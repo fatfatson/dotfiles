@@ -1,6 +1,11 @@
 ForwardAgent yes
 
 
+Host cz
+    HostName cz.19v5.com
+    User wellbye
+	ServerAliveInterval 60
+
 Host hz
     HostName hz.19v5.com
     User wellbye
