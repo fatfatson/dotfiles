@@ -150,6 +150,10 @@ export JAVA_HOME="/cygdrive/c/Program Files (x86)/Java/jdk1.8.0_31"
 export PATH=$PATH:"/cygdrive/c/Program Files (x86)/Java/jdk1.8.0_31/bin"
 export PATH="/usr/local/ImageMagick-6.8.8/bin":$PATH
 unset GIT_SSH
+function settitle()
+{
+    echo -ne '\e]0;'$1'\a'
+}
 
 fi
 

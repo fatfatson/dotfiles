@@ -31,3 +31,9 @@
 [submodule "vim/bundle/YouCompleteMe"]
 	path = vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "vim/bundle/ConflictMotions"]
+	path = vim/bundle/ConflictMotions
+	url = https://github.com/vim-scripts/ConflictMotions.git
+[submodule "vim/bundle/CountJump"]
+	path = vim/bundle/CountJump
+	url = https://github.com/vim-scripts/CountJump.git

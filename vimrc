@@ -1,9 +1,14 @@
 execute pathogen#infect()
+set runtimepath+=~/.vim
+
 "set runtimepath-=~/.vim/bundle/youcompleteme
 
 
 syntax on    
 colorscheme torte
+if &diff
+    colorscheme mydiff
+endif
 hi Pmenu ctermfg=Cyan ctermbg=Blue cterm=None guifg=Cyan guibg=DarkBlue
 set nocompatible
 set completeopt-=preview

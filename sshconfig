@@ -1,15 +1,18 @@
 ForwardAgent yes
 
-Host *
-    PubkeyAcceptedKeyTypes=+ssh-dss
+
+Host cz
+    HostName cz.19v5.com
+    User wellbye
+	ServerAliveInterval 60
 
 Host hz
-    HostName 58.215.161.12
+    HostName hz.19v5.com
     User wellbye
 	ServerAliveInterval 60
 
 Host hk
-    HostName xw.mmdai.org
+    HostName mmdai.org
     User wellbye
 	ServerAliveInterval 60
 
