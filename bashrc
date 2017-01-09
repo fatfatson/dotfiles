@@ -155,7 +155,10 @@ function settitle()
 }
 
 fi
-
+ 
+pwd=$(pwd)
+[ -f $pwd/bash.local ] && . $pwd/bash.local
+[ -f $pwd/tool/bash.local ] && . $pwd/tool/bash.local
 #############################################
 
 alias tmuxk='tmux kill-server'

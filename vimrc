@@ -10,6 +10,7 @@ if &diff
     colorscheme mydiff
 endif
 hi Pmenu ctermfg=Cyan ctermbg=Blue cterm=None guifg=Cyan guibg=DarkBlue
+set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
 set nocompatible
 set completeopt-=preview
 set hidden
