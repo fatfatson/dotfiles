@@ -120,6 +120,14 @@ function hkp_do
     http_proxy=http://127.0.0.1:9527 https_proxy=http://127.0.0.1:9527 $@
 }
 
+
+function clone_cc_app
+{
+    appname=$1
+    git clone git@hz.19v5.com:logic/${appname}app.git
+    git clone git@hz.19v5.com:res/${appname}res.git
+}
+
 #############################################
 if [ "$OS" == "Darwin" ] ;then
 
