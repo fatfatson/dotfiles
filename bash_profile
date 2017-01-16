@@ -2,10 +2,18 @@ export EXEC_BASH_PROFILE=`whoami`
 source ~/.bashrc
 [ -f ~/.dotfiles_home ] && source ~/.dotfiles_home
 [ -f ~/.bash_local ] && source ~/.bash_local
+
+export ANDROID_SDK=~/sdk/adk
+export ANDROID_SDK_ROOT=$ANDROID_SDK
+export ANDROID_HOME=$ANDROID_SDK
+
 export NDK_ROOT=~/sdk/andk
-export ANDROID_SDK_ROOT=~/sdk/adk
-export ANDROID_HOME=$ANDROID_SDK_ROOT
-export ANDROID_SDK=$ANDROID_SDK_ROOT
+export ANDROID_NDK_ROOT=~/sdk/andk
+export ANDROID_NDK_HOME=$ANDROID_NDK_ROOT
+export ANDROID_NDK_X86=$NDK_ROOT/toolchains/x86-4.9/prebuilt/darwin-x86_64
+export ANDROID_NDK_ARM=$NDK_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64
+export ANDROID_NDK_CLANG=$NDK_ROOT/toolchains/llvm/prebuilt/darwin-x86_64
+
 export ANT_ROOT=/usr/local/bin
 export COCOS_CONSOLE_ROOT=~/git-repo/mmd-cc/tools/cocos2d-console/bin
 export QT_ROOT=~/Qt5.5.1/5.5/clang_64/bin
