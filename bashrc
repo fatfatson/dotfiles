@@ -107,7 +107,7 @@ function run_sshagent
 function run_goagent_tunnel
 {
     ps aux | grep ssh | grep 9527 | grep 3128 | awk '{print $2;}' | xargs kill -9
-    autossh -M 0 -gN -L 9527:0.0.0.0:3128 -o ServerAliveInterval=60 goagent@mmdai.org 2>/dev/null &
+    autossh -M 0 -gN -L 9527:0.0.0.0:3128 -o ServerAliveInterval=60 root@mmdai.org 2>/dev/null &
 }
 
 function tmsp
@@ -115,9 +115,15 @@ function tmsp
     tmux split $1 -c $PWD
 }
 
+function set_hkp
+{
+    export hkp_proxy=$1
+}
+
 function hkp_do
 {
-    http_proxy=http://127.0.0.1:9527 https_proxy=http://127.0.0.1:9527 $@
+    ipport=${hkp_proxy:-127.0.0.1:9527}
+    http_proxy=http://$ipport https_proxy=http://$ipport $@
 }
 
 

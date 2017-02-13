@@ -73,6 +73,7 @@ inoremap <expr> <C-u> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
 
 autocmd! vimenter * call My_StartUp()
 autocmd! bufenter *.story set ft=lua
+autocmd! bufenter *.make set ft=make
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd BufNewFile,BufRead *.py
 \setlocal tabstop=4
