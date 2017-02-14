@@ -115,9 +115,15 @@ function tmsp
     tmux split $1 -c $PWD
 }
 
+function set_hkp
+{
+    export hkp_proxy=$1
+}
+
 function hkp_do
 {
-    http_proxy=http://127.0.0.1:9527 https_proxy=http://127.0.0.1:9527 $@
+    ipport=${hkp_proxy:-127.0.0.1:9527}
+    http_proxy=http://$ipport https_proxy=http://$ipport $@
 }
 
 
@@ -156,6 +162,7 @@ alias sudo=''
 export CYGWIN=winsymlinks:native
 export JAVA_HOME="/cygdrive/c/Program Files (x86)/Java/jdk1.8.0_31"
 export PATH=$PATH:"/cygdrive/c/Program Files (x86)/Java/jdk1.8.0_31/bin"
+export PATH="/usr/local/ImageMagick-6.8.8/bin":$PATH
 unset GIT_SSH
 function settitle()
 {
