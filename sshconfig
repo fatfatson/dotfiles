@@ -10,6 +10,11 @@ Host hz
     HostName hz.19v5.com
     User wellbye
 	ServerAliveInterval 60
+    StrictHostKeyChecking no
+
+Host hz.19v5.com
+    HostName hz.19v5.com
+    StrictHostKeyChecking no
 
 Host hk
     HostName mmdai.org
