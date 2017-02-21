@@ -178,6 +178,8 @@ pwd=$(pwd)
 
 alias tmuxk='tmux kill-server'
 alias tmuxa='tmux attach'
+alias cddof='cd ~/dotfiles'
+
 export PATH=/usr/local/sbin:/usr/local/bin/:$PATH
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
