@@ -17,6 +17,8 @@
 	mt = mergetool
 	di = diff --no-ext-diff
 	dic = diff --no-ext-diff --cached
+    lsu = ls-files --others --exclude-standard
+
     logn = log --name-status
 	ci = commit
 	ro = remote
