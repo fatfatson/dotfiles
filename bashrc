@@ -10,10 +10,10 @@ function find_top_dir
     if [ "$0" == "-bash" ]; then
        this_dir=`pwd`
     else
-       this_dir=$(cd $(dirname $0) && pwd)
        if [ -n "$top_dir" ]; then
             return 0
        fi
+       this_dir=$(cd $(dirname $0) && pwd)
     fi
 
     origin_dir=`pwd`
@@ -158,6 +158,7 @@ alias ls='ls -al --color=auto'
 elif [[ $OS == CYGWIN* ]]; then
 alias ls='ls -al --color=auto'
 alias sudo=''
+alias open=cygstart
 #export CYGWIN="winsymlinks"
 export CYGWIN=winsymlinks:native
 export JAVA_HOME="/cygdrive/c/Program Files (x86)/Java/jdk1.8.0_31"
