@@ -10,10 +10,10 @@ function find_top_dir
     if [ "$0" == "-bash" ]; then
        this_dir=`pwd`
     else
+       this_dir=$(cd $(dirname $0) && pwd)
        if [ -n "$top_dir" ]; then
             return 0
        fi
-       this_dir=$(cd $(dirname $0) && pwd)
     fi
 
     origin_dir=`pwd`

@@ -46,3 +46,6 @@
 [submodule "vim/bundle/vim-indent-lua"]
 	path = vim/bundle/vim-indent-lua
 	url = https://github.com/drmingdrmer/vim-indent-lua.git
+[submodule "vim/bundle/taglist"]
+	path = vim/bundle/taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
