@@ -165,6 +165,7 @@ alias ls='ls -al --color=auto'
 elif [[ $OS == CYGWIN* ]]; then
 alias ls='ls -al --color=auto'
 alias sudo=''
+alias open=cygstart
 #export CYGWIN="winsymlinks"
 export CYGWIN=winsymlinks:native
 export JAVA_HOME="/cygdrive/c/Program Files (x86)/Java/jdk1.8.0_31"
