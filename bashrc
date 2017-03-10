@@ -126,6 +126,13 @@ function hkp_do
     http_proxy=http://$ipport https_proxy=http://$ipport $@
 }
 
+function sock5_do
+{
+    ipport=${hkp_proxy:-127.0.0.1:1080}
+    http_proxy=socks5://$ipport https_proxy=socks5://$ipport $@
+}
+
+
 
 function clone_cc_app
 {
