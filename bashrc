@@ -159,11 +159,11 @@ elif [[ $OS == CYGWIN* ]]; then
 alias ls='ls -al --color=auto'
 alias sudo=''
 alias open=cygstart
+#alias convert="magick convert"
 #export CYGWIN="winsymlinks"
 export CYGWIN=winsymlinks:native
 export JAVA_HOME="/cygdrive/c/Program Files (x86)/Java/jdk1.8.0_31"
 export PATH=$PATH:"/cygdrive/c/Program Files (x86)/Java/jdk1.8.0_31/bin"
-export PATH="/usr/local/ImageMagick-6.8.8/bin":$PATH
 unset GIT_SSH
 function settitle()
 {
