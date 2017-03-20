@@ -133,6 +133,27 @@ function sock5_do
 }
 
 
+function tm_setenv
+{
+    export $1=$2
+    tmux set-env $1 $2
+}
+
+function tm_upenv
+{
+    local v
+    while read v; do
+        if [[ $v == -* ]]; then
+            unset ${v/#-/}
+        else
+            # Add quotes around the argument
+            v=${v/=/=\"}
+            v=${v/%/\"}
+            eval export $v
+        fi
+    done < <(tmux show-environment)
+}
+
 
 function clone_cc_app
 {
