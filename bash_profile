@@ -26,7 +26,7 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 export PS1="[\u@\h:\w]"
 export LANG="en_US.UTF-8"
 #export SSL_CERT_FILE=$dotfiles_home/cacert.pem
-export HOMEBREW_GITHUB_API_TOKEN=16c849687f08fb202a1f4faac56f1eefbcdbf6f1
+export HOMEBREW_GITHUB_API_TOKEN=0a15efd6f5a715f9f9811a17049f6ec8876aa001
 
 
 
