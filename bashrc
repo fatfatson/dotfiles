@@ -123,7 +123,7 @@ function set_hkp
 function hkp_do
 {
     ipport=${hkp_proxy:-127.0.0.1:9527}
-    http_proxy=http://$ipport https_proxy=http://$ipport $@
+    http_proxy=http://$ipport https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@
 }
 
 function sock5_do
@@ -151,6 +151,7 @@ fi
 alias ctags="`brew --prefix`/bin/ctags"
 alias ls='ls -alG'
 alias sed=gsed
+alias readlink=greadlink
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
 #############################################
