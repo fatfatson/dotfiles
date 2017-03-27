@@ -1,15 +1,28 @@
 OS=$(uname)
 
+function reload-bashrc
+{
+    source ~/.bashrc
+}
+
 function find_top_dir
 {
-    this_dir=$(cd $(dirname $0) && pwd)
-    if [ -n "$top_dir" ]; then
-        return 0
+    if [ "$0" == "-bash" ]; then
+       this_dir=`pwd`
+    else
+       this_dir=$(cd $(dirname $0) && pwd)
+       if [ -n "$top_dir" ]; then
+            return 0
+       fi
     fi
 
+    origin_dir=`pwd`
     target=$1
+    echo current:`pwd`, find:$target 
+
     while [ ! -d $target ]
     do
+        #echo `pwd`
         cd ..
         if [ "`pwd`" == "/" ]; then 
             break 
@@ -17,8 +30,10 @@ function find_top_dir
     done
 
     if [ `pwd` == / ]; then
-        echo "*** Can't find top_dir which contains $target ***"
-        exit 1
+        echo "*** Cannot find top_dir which contains:" $target "***"
+        cd $this_dir
+        #echo "aaaaaa"
+        return 1
     else
         top_dir=`pwd`
         export top_dir
@@ -87,12 +102,17 @@ function run_sshagent
 {
     [ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent -s)
     ssh-add
+    if [ $? -eq 0 ]; then
+        tm_setenv SSH_AGENT_PID $SSH_AGENT_PID
+        tm_setenv SSH_AUTH_SOCK $SSH_AUTH_SOCK
+
+    fi
 }
 
 function run_goagent_tunnel
 {
     ps aux | grep ssh | grep 9527 | grep 3128 | awk '{print $2;}' | xargs kill -9
-    autossh -M 0 -gN -L 9527:0.0.0.0:3128 -o ServerAliveInterval=60 goagent@mmdai.org 2>/dev/null &
+    autossh -M 0 -gN -L 9527:0.0.0.0:3128 -o ServerAliveInterval=60 root@mmdai.org 2>/dev/null &
 }
 
 function tmsp
@@ -100,9 +120,51 @@ function tmsp
     tmux split $1 -c $PWD
 }
 
+function set_hkp
+{
+    export hkp_proxy=$1
+}
+
 function hkp_do
 {
-    http_proxy=http://127.0.0.1:9527 https_proxy=http://127.0.0.1:9527 $@
+    ipport=${hkp_proxy:-127.0.0.1:9527}
+    http_proxy=http://$ipport https_proxy=http://$ipport $@
+}
+
+function sock5_do
+{
+    ipport=${hkp_proxy:-127.0.0.1:1080}
+    http_proxy=socks5://$ipport https_proxy=socks5://$ipport $@
+}
+
+
+function tm-setenv
+{
+    export $1=$2
+    tmux set-env $1 $2
+}
+
+function tm-upenv
+{
+    local v
+    while read v; do
+        if [[ $v == -* ]]; then
+            unset ${v/#-/}
+        else
+            # Add quotes around the argument
+            v=${v/=/=\"}
+            v=${v/%/\"}
+            eval export $v
+        fi
+    done < <(tmux show-environment)
+}
+
+
+function clone_cc_app
+{
+    appname=$1
+    git clone git@hz.19v5.com:logic/${appname}app.git
+    git clone git@hz.19v5.com:res/${appname}res.git
 }
 
 #############################################
@@ -129,16 +191,31 @@ alias ls='ls -al --color=auto'
 elif [[ $OS == CYGWIN* ]]; then
 alias ls='ls -al --color=auto'
 alias sudo=''
+alias open=cygstart
+#alias convert="magick convert"
 #export CYGWIN="winsymlinks"
 export CYGWIN=winsymlinks:native
 export JAVA_HOME="/cygdrive/c/Program Files (x86)/Java/jdk1.8.0_31"
 export PATH=$PATH:"/cygdrive/c/Program Files (x86)/Java/jdk1.8.0_31/bin"
 unset GIT_SSH
+function settitle()
+{
+    echo -ne '\e]0;'$1'\a'
+}
 
 fi
-
+ 
+pwd=$(pwd)
+[ -f $pwd/bash.local ] && . $pwd/bash.local
+[ -f $pwd/tool/bash.local ] && . $pwd/tool/bash.local
 #############################################
 
 alias tmuxk='tmux kill-server'
 alias tmuxa='tmux attach'
+alias cddof='cd ~/dotfiles'
+
 export PATH=/usr/local/sbin:/usr/local/bin/:$PATH
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+#export SDKMAN_DIR="/home/admin/.sdkman"
+#[[ -s "/home/admin/.sdkman/bin/sdkman-init.sh" ]] && source "/home/admin/.sdkman/bin/sdkman-init.sh"

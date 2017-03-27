@@ -1,10 +1,16 @@
 execute pathogen#infect()
+set runtimepath+=~/.vim
+
 "set runtimepath-=~/.vim/bundle/youcompleteme
 
 
 syntax on    
 colorscheme torte
+if &diff
+    colorscheme mydiff
+endif
 hi Pmenu ctermfg=Cyan ctermbg=Blue cterm=None guifg=Cyan guibg=DarkBlue
+set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
 set nocompatible
 set completeopt-=preview
 set hidden
@@ -67,6 +73,7 @@ inoremap <expr> <C-u> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
 
 autocmd! vimenter * call My_StartUp()
 autocmd! bufenter *.story set ft=lua
+autocmd! bufenter *.make set ft=make
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd BufNewFile,BufRead *.py
 \setlocal tabstop=4

@@ -9,13 +9,19 @@
 [alias]
 	st = status -uno
 	stu = status 
+	sti = status --ignored
 	cm = commit
+	ca = commit -a 
 	co = checkout
 	br = branch
 	mt = mergetool
 	di = diff --no-ext-diff
 	dic = diff --no-ext-diff --cached
+    lsu = ls-files --others --exclude-standard
+
     logn = log --name-status
+	ci = commit
+	ro = remote
 
 [push]
 	default = current
@@ -39,3 +45,5 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[url "https://github.com/"]
+	insteadOf = git://github.com/

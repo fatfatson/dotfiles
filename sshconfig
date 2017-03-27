@@ -1,12 +1,23 @@
 ForwardAgent yes
 
-Host hz
-    HostName 58.215.161.12
+
+Host cz
+    HostName cz.19v5.com
     User wellbye
 	ServerAliveInterval 60
 
+Host hz
+    HostName hz.19v5.com
+    User wellbye
+	ServerAliveInterval 60
+    StrictHostKeyChecking no
+
+Host hz.19v5.com
+    HostName hz.19v5.com
+    StrictHostKeyChecking no
+
 Host hk
-    HostName xw.mmdai.org
+    HostName mmdai.org
     User wellbye
 	ServerAliveInterval 60
 
