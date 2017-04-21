@@ -103,8 +103,8 @@ function run_sshagent
     [ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent -s)
     ssh-add
     if [ $? -eq 0 ]; then
-        tm_setenv SSH_AGENT_PID $SSH_AGENT_PID
-        tm_setenv SSH_AUTH_SOCK $SSH_AUTH_SOCK
+        tm-setenv SSH_AGENT_PID $SSH_AGENT_PID
+        tm-setenv SSH_AUTH_SOCK $SSH_AUTH_SOCK
 
     fi
 }
