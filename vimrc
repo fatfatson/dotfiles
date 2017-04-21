@@ -5,7 +5,7 @@ set runtimepath+=~/.vim
 
 
 syntax on    
-colorscheme torte
+colorscheme desert
 if &diff
     colorscheme mydiff
 endif

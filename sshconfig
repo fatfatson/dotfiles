@@ -1,4 +1,7 @@
 ForwardAgent yes
+UseKeychain yes
+AddKeysToAgent yes
+
 
 
 Host cz
