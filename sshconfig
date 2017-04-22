@@ -3,6 +3,10 @@ UseKeychain yes
 AddKeysToAgent yes
 
 
+Host dish
+    HostName 106.14.25.97
+    User root
+	ServerAliveInterval 60
 
 Host cz
     HostName cz.19v5.com
