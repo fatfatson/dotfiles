@@ -134,7 +134,7 @@ function hkp_do
 function sock5_do
 {
     ipport=${hkp_proxy:-127.0.0.1:1080}
-    http_proxy=socks5://$ipport https_proxy=socks5://$ipport $@
+    http_proxy=socks5://$ipport https_proxy=socks5://$ipport HTTP_PROXY=socks5://$ipport HTTPS_PROXY=socks5://$ipport $@
 }
 
 
