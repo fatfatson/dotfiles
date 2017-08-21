@@ -33,4 +33,4 @@ export HOMEBREW_GITHUB_API_TOKEN=0a15efd6f5a715f9f9811a17049f6ec8876aa001
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #export SDKMAN_DIR="~/.sdkman"
 #[[ -s "~/.sdkman/bin/sdkman-init.sh" ]] && source "~/.sdkman/bin/sdkman-init.sh"
-eval $(/usr/libexec/path_helper -s)
+[[ -f /usr/libexec/path_helper ]] && eval $(/usr/libexec/path_helper -s)
