@@ -173,18 +173,9 @@ function tm-upenv
 }
 
 
-function clone_cc_app
-{
-    appname=$1
-    git clone git@hz.19v5.com:logic/${appname}app.git
-    git clone git@hz.19v5.com:res/${appname}res.git
-}
-
 function run-tmux-copy-server {
-    ps aux|grep -ie socat | grep 29292
-    if [ $? -ne 0 ]; then
-        (socat TCP4-LISTEN:29292,fork EXEC:$HOME/dotfiles/ssh-recv-copy.sh )&
-    fi
+    ps aux|grep -ie socat | grep 29292 | awk '{print $2}' | xargs kill
+    (socat TCP4-LISTEN:29292,fork EXEC:$HOME/dotfiles/copy_to_sysclip.sh )&
 }
 
 function exssh {
