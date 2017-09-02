@@ -5,6 +5,11 @@ function reload-bashrc
     source ~/.bashrc
 }
 
+function reload-profile
+{
+    source ~/.bash_profile
+}
+
 function find_top_dir
 {
     if [ "$0" == "-bash" ]; then
@@ -42,6 +47,14 @@ function find_top_dir
 }
 export -f find_top_dir
 
+function add2path
+{
+    np=$1
+    echo "add_to_path:"$np
+    echo "origin:"$PATH_DYNADD
+    gsed -i -r 's@(export PATH_DYNADD=)@\1'$np':@g'  ~/dotfiles/bash_profile 
+
+}
 
 function check_and_run
 {
@@ -167,16 +180,32 @@ function clone_cc_app
     git clone git@hz.19v5.com:res/${appname}res.git
 }
 
+function run-tmux-copy-server {
+    ps aux|grep -ie socat | grep 29292
+    if [ $? -ne 0 ]; then
+        (socat TCP4-LISTEN:29292,fork EXEC:$HOME/dotfiles/ssh-recv-copy.sh )&
+    fi
+}
+
+function exssh {
+    ssh $@ -t "export LOCALUSER=`whoami`; bash -l"
+}
+
 #############################################
 if [ "$OS" == "Darwin" ] ;then
 
-
+export PATH=/usr/local/bin:$PATH
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 alias ctags="`brew --prefix`/bin/ctags"
 alias ls='ls -alG'
 alias sed=gsed
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+alias mysql="rlwrap -a -- mysql"
+
+
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
 #############################################

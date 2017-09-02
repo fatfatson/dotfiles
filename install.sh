@@ -8,7 +8,7 @@ mkdir -p $olddir
 files="bash_profile bashrc inputrc vimrc vim tmux.conf gitconfig hgrc"
 cd "$dir"
 for file in $files; do
-	mv -f ~/.$file ~/dotfiles_old/
+	[ -f ~/.$file ] && mv -f ~/.$file ~/dotfiles_old/
 	ln -s $dir/$file ~/.$file
 done
 
