@@ -141,13 +141,13 @@ function set_hkp
 function hkp_do
 {
     ipport=${hkp_proxy:-127.0.0.1:9527}
-    http_proxy=http://$ipport https_proxy=http://$ipport $@
+    http_proxy=http://$ipport https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@
 }
 
 function sock5_do
 {
     ipport=${hkp_proxy:-127.0.0.1:1080}
-    http_proxy=socks5://$ipport https_proxy=socks5://$ipport $@
+    http_proxy=socks5://$ipport https_proxy=socks5://$ipport HTTP_PROXY=socks5://$ipport HTTPS_PROXY=socks5://$ipport $@
 }
 
 
@@ -204,8 +204,7 @@ alias sed=gsed
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
 alias mysql="rlwrap -a -- mysql"
-
-
+alias readlink=greadlink
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
 #############################################

@@ -43,4 +43,4 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #export SDKMAN_DIR="~/.sdkman"
 #[[ -s "~/.sdkman/bin/sdkman-init.sh" ]] && source "~/.sdkman/bin/sdkman-init.sh"
-eval $(/usr/libexec/path_helper -s)
+[[ -f /usr/libexec/path_helper ]] && eval $(/usr/libexec/path_helper -s)
