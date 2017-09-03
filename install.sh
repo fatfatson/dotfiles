@@ -18,5 +18,5 @@ rm -rf ~/.profile
 cat profile | sed s/\$USER/`whoami`/ > ~/.profile
 
 [ -f ~/.ssh/config ] && mv ~/.ssh/config  ~/dotfiles_old/sshconfig
-mkdir -p ~/.ssh/config
+mkdir -p ~/.ssh/
 ln -s $dir/sshconfig ~/.ssh/config
