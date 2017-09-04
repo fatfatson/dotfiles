@@ -17,6 +17,10 @@ elif [ "$OS" == "Darwin" ] ;then
 elif [[ $OS == CYGWIN* ]]; then
     echo -n $text > /dev/clipboard
 
+elif [[ $OS == Linux ]]; then
+    echo -n $text | xsel -i -p
+    echo -n $text | xsel -i -b
+
 else
     echo "not implemented os: "$OS
 
