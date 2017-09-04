@@ -47,6 +47,11 @@ function find_top_dir
 }
 export -f find_top_dir
 
+function git-fix-push
+{
+    git ca -m "fix" && git push
+}
+
 function add2path
 {
     np=$1
