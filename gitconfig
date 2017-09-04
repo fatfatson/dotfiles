@@ -8,6 +8,8 @@
 	filemode = false
 	autocrlf = input
 [alias]
+    ps = push
+    pl = pull
 	st = status -uno
 	stu = status 
 	sti = status --ignored
