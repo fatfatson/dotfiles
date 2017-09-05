@@ -13,6 +13,10 @@ Host ci
     HostName 192.168.1.252
     User wellbye
 
+Host ly
+    HostName 47.89.252.70
+    User wellbye
+
 
 Host dish
     HostName 106.14.25.97
