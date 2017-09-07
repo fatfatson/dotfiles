@@ -145,7 +145,15 @@ function set_hkp
 
 function hkp_do
 {
-    ipport=${hkp_proxy:-127.0.0.1:9527}
+    finalv=$hkp_proxy
+    if [ -z "$finalv" ]; then 
+        if [ -f ~/.hkp_proxy ]; then
+            finalv=`cat ~/.hkp_proxy 2>/dev/null`
+        fi
+    fi
+
+    ipport=${finalv:-127.0.0.1:9527}
+    echo "hkp_proxy is: $ipport"
     http_proxy=http://$ipport https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@
 }
 
@@ -200,6 +208,8 @@ alias sed=gsed
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
 alias mysql="rlwrap -a -- mysql"
+alias aps="brew search"
+alias api="brew install"
 alias readlink=greadlink
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
