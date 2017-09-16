@@ -211,6 +211,10 @@ alias aps="apt-cache search"
 alias sudo='sudo '
 alias ls='ls -al --color=auto'
 
+settitle() {
+    echo -ne "\033]0;$1\007"
+}
+
 #############################################
 elif [[ $OS == CYGWIN* ]]; then
 alias ls='ls -al --color=auto'
