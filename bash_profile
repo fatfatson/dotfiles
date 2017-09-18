@@ -3,7 +3,7 @@ export EXEC_BASH_PROFILE=`whoami`
 source ~/.bashrc
 [ -f ~/.dotfiles_home ] && source ~/.dotfiles_home
 [ -f ~/.bash_local ] && source ~/.bash_local
-source ~/dotfiles/tmux.comp
+[ -f ~/dotfiles/tmux.comp ] && source ~/dotfiles/tmux.comp
 
 
 export ANDROID_SDK=~/sdk/adk
