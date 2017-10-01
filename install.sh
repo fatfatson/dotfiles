@@ -8,7 +8,7 @@ mkdir -p $olddir
 files="bash_profile bashrc inputrc vimrc vim tmux.conf gitconfig hgrc"
 cd "$dir"
 for file in $files; do
-	mv -f ~/.$file ~/dotfiles_old/
+	[ -f ~/.$file ] && mv -f ~/.$file ~/dotfiles_old/
 	ln -s $dir/$file ~/.$file
 done
 
@@ -18,5 +18,5 @@ rm -rf ~/.profile
 cat profile | sed s/\$USER/`whoami`/ > ~/.profile
 
 [ -f ~/.ssh/config ] && mv ~/.ssh/config  ~/dotfiles_old/sshconfig
-mkdir -p ~/.ssh/config
+mkdir -p ~/.ssh/
 ln -s $dir/sshconfig ~/.ssh/config

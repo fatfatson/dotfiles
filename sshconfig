@@ -1,12 +1,26 @@
 ForwardAgent yes
 #UseKeychain yes
 #AddKeysToAgent yes
+ServerAliveInterval 60
+RemoteForward 29292 127.0.0.1:29292
+#RemoteForward 29293 127.0.0.1:22
+
+Host git
+    HostName 192.168.1.253
+    User root
+
+Host ci
+    HostName 192.168.1.252
+    User wellbye
+
+Host ly
+    HostName 47.89.252.70
+    User wellbye
 
 
 Host dish
     HostName 106.14.25.97
     User root
-	ServerAliveInterval 60
 
 Host cz
     HostName cz.19v5.com
@@ -50,18 +64,7 @@ Host linb
     User wellbye
 	ServerAliveInterval 60
 
-Host test1
-    HostName 192.168.1.20
-    User wellbye
+Host mac
+    HostName 192.168.1.11
+    User mac
 	ServerAliveInterval 60
-
-Host imac
-    HostName 192.168.1.136
-    User dyj
-	ServerAliveInterval 60
-	PreferredAuthentications keyboard-interactive
-
-Host pi
-#HostName 192.168.0.5
-    HostName wellbye.eicp.net
-    User pi
