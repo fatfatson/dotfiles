@@ -6,7 +6,10 @@
 	editor = vim
 	excludesfile = /Users/abc/.gitignore_global
 	filemode = false
+	autocrlf = input
 [alias]
+    ps = push
+    pl = pull
 	st = status -uno
 	stu = status 
 	sti = status --ignored
@@ -46,4 +49,5 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [url "https://github.com/"]
-	insteadOf = git://github.com/
+[http]
+[https]

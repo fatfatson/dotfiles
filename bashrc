@@ -5,6 +5,11 @@ function reload-bashrc
     source ~/.bashrc
 }
 
+function reload-profile
+{
+    source ~/.bash_profile
+}
+
 function find_top_dir
 {
     if [ "$0" == "-bash" ]; then
@@ -42,6 +47,19 @@ function find_top_dir
 }
 export -f find_top_dir
 
+function git-fix-push
+{
+    git ca -m "fix" && git push
+}
+
+function add2path
+{
+    np=$1
+    echo "add_to_path:"$np
+    echo "origin:"$PATH_DYNADD
+    gsed -i -r 's@(export PATH_DYNADD=)@\1'$np':@g'  ~/dotfiles/bash_profile 
+
+}
 
 function check_and_run
 {
@@ -127,14 +145,22 @@ function set_hkp
 
 function hkp_do
 {
-    ipport=${hkp_proxy:-127.0.0.1:9527}
-    http_proxy=http://$ipport https_proxy=http://$ipport $@
+    finalv=$hkp_proxy
+    if [ -z "$finalv" ]; then 
+        if [ -f ~/.hkp_proxy ]; then
+            finalv=`cat ~/.hkp_proxy 2>/dev/null`
+        fi
+    fi
+
+    ipport=${finalv:-127.0.0.1:9527}
+    echo "hkp_proxy is: $ipport"
+    http_proxy=http://$ipport https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@
 }
 
 function sock5_do
 {
     ipport=${hkp_proxy:-127.0.0.1:1080}
-    http_proxy=socks5://$ipport https_proxy=socks5://$ipport $@
+    http_proxy=socks5://$ipport https_proxy=socks5://$ipport HTTP_PROXY=socks5://$ipport HTTPS_PROXY=socks5://$ipport $@
 }
 
 
@@ -160,23 +186,31 @@ function tm-upenv
 }
 
 
-function clone_cc_app
-{
-    appname=$1
-    git clone git@hz.19v5.com:logic/${appname}app.git
-    git clone git@hz.19v5.com:res/${appname}res.git
+function run-tmux-copy-server {
+    ps aux|grep -ie socat | grep 29292 | awk '{print $2}' | xargs kill
+    (socat TCP4-LISTEN:29292,fork EXEC:$HOME/dotfiles/copy_to_sysclip.sh )&
+}
+
+function exssh {
+    ssh $@ -t "export LOCALUSER=`whoami`; bash -l"
 }
 
 #############################################
 if [ "$OS" == "Darwin" ] ;then
 
-
+export PATH=/usr/local/bin:$PATH
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 alias ctags="`brew --prefix`/bin/ctags"
 alias ls='ls -alG'
 alias sed=gsed
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+alias mysql="rlwrap -a -- mysql"
+alias aps="brew search"
+alias api="brew install"
+alias readlink=greadlink
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
 #############################################
@@ -186,6 +220,10 @@ alias api="sudo apt-get install"
 alias aps="apt-cache search"
 alias sudo='sudo '
 alias ls='ls -al --color=auto'
+
+settitle() {
+    echo -ne "\033]0;$1\007"
+}
 
 #############################################
 elif [[ $OS == CYGWIN* ]]; then
@@ -219,3 +257,6 @@ export PATH=/usr/local/sbin:/usr/local/bin/:$PATH
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #export SDKMAN_DIR="/home/admin/.sdkman"
 #[[ -s "/home/admin/.sdkman/bin/sdkman-init.sh" ]] && source "/home/admin/.sdkman/bin/sdkman-init.sh"
+
+export NVM_DIR="/home/wellbye/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
