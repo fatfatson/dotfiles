@@ -2,8 +2,11 @@ ForwardAgent yes
 #UseKeychain yes
 #AddKeysToAgent yes
 ServerAliveInterval 60
-RemoteForward 29292 127.0.0.1:29292
+#RemoteForward 29292 127.0.0.1:29292
 #RemoteForward 29293 127.0.0.1:22
+
+UserKnownHostsFile /dev/null 
+StrictHostKeyChecking no
 
 Host git
     HostName 192.168.1.253
@@ -13,9 +16,10 @@ Host ci
     HostName 192.168.1.252
     User wellbye
 
-Host ly
-    HostName 47.89.252.70
-    User wellbye
+Host xjh
+    HostName xjh.19v5.com
+    Port 1022
+    User xjh
 
 
 Host dish
@@ -42,10 +46,6 @@ Host hk
     User wellbye
 	ServerAliveInterval 60
 
-Host mmd
-    HostName mmdai.org
-    User wellbye
-	ServerAliveInterval 60
 
 Host ali
     HostName ali.19v5.com
