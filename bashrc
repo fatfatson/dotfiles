@@ -246,6 +246,7 @@ fi
 pwd=$(pwd)
 [ -f $pwd/bash.local ] && . $pwd/bash.local
 [ -f $pwd/tool/bash.local ] && . $pwd/tool/bash.local
+[ -f $pwd/tools/bash.local ] && . $pwd/tools/bash.local
 #############################################
 
 alias tmuxk='tmux kill-server'
