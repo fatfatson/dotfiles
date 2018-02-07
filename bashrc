@@ -258,5 +258,8 @@ export PATH=/usr/local/sbin:/usr/local/bin/:$PATH
 #export SDKMAN_DIR="/home/admin/.sdkman"
 #[[ -s "/home/admin/.sdkman/bin/sdkman-init.sh" ]] && source "/home/admin/.sdkman/bin/sdkman-init.sh"
 
-export NVM_DIR="/home/wellbye/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+function load-nvm(){
+    export NVM_DIR="/home/wellbye/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
