@@ -154,7 +154,7 @@ function hkp_do
 
     ipport=${finalv:-127.0.0.1:9527}
     echo "hkp_proxy is: $ipport"
-    http_proxy=http://$ipport https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@
+    http_proxy=http://$ipport https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ --http-proxy http://$ipport
 }
 
 function sock5_do
@@ -255,12 +255,15 @@ alias cddof='cd ~/dotfiles'
 
 export PATH=/usr/local/sbin:/usr/local/bin/:$PATH
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-#export SDKMAN_DIR="/home/admin/.sdkman"
-#[[ -s "/home/admin/.sdkman/bin/sdkman-init.sh" ]] && source "/home/admin/.sdkman/bin/sdkman-init.sh"
-
 function load-nvm(){
     export NVM_DIR="/home/wellbye/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
+
+function load-rvm(){
+    source ~/.rvm/scripts/rvm
+}
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
