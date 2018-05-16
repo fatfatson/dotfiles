@@ -154,7 +154,11 @@ function hkp_do
 
     ipport=${finalv:-127.0.0.1:9527}
     echo "hkp_proxy is: $ipport"
-    http_proxy=http://$ipport https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ --http-proxy http://$ipport
+    if [ -z $p ]; then
+        http_proxy=http://$ipport https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ 
+    else
+        http_proxy=http://$ipport https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ --http-proxy http://$ipport
+    fi
 }
 
 function sock5_do
