@@ -105,6 +105,11 @@ function adbi
     fi
 }
 
+function adbt
+{
+    adb shell su root date $(date +%m%d%H%M%Y.%S)
+}
+
 function geny
 {
     if [ x$1 == x ]; then
