@@ -30,7 +30,7 @@ set statusline=%m\ %F\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [L
 filetype plugin indent on  
 
 let mapleader = ","
-imap <C-f> <ESC>
+imap jj <ESC>
 vmap <C-f> <ESC>
 nmap <C-f> <ESC>
 imap <C-h> <Left>

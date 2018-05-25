@@ -1,6 +1,6 @@
 [user]
 	name = wellbye
-	email = wellbye@163.com
+	email = 7355233@qq.com
 [core]
 	quotepath = false
 	editor = vim
@@ -29,13 +29,15 @@
 [push]
 	default = current
 [merge]
-	tool = extMerge
+	xtool = extMerge
+	tool = bc3
 [mergetool "extMerge"]
 	cmd = extMerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 [mergetool]
 	trustExitCode = false
 [diff]
-	external = extDiff
+	xexternal = extDiff
+	tool = bc3
 [log]
 	date = iso
 [filter "lfs"]
