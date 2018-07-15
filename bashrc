@@ -222,6 +222,11 @@ alias api="brew install"
 alias readlink=greadlink
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
+function logs
+{
+    log stream --info --debug --predicate "sender == \"$1\"" --style syslog
+}
+
 #############################################
 elif [ "$OS" == "Linux" ] ;then
 
