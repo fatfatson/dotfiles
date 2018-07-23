@@ -143,10 +143,23 @@ function tmsp
     tmux split $1 -c $PWD
 }
 
+function mk8
+{
+    cmd=$1
+    #echo $1
+    if [ $cmd == "env" ]; then
+        echo 'eval docker-env'
+        eval $(minikube docker-env)
+    else
+        minikube --logtostderr $@
+    fi
+}
+
 function set_hkp
 {
     export hkp_proxy=$1
 }
+
 
 function hkp_do
 {
@@ -159,7 +172,18 @@ function hkp_do
 
     ipport=${finalv:-127.0.0.1:9527}
     echo "hkp_proxy is: $ipport"
-    if [ -z $p ]; then
+
+    #echo "var:",$exp,$uexp,$p
+    if [ -v exp ]; then
+        export http_proxy=http://$ipport
+        export https_proxy=http://$ipport
+        export no_proxy=192.168.0.0/16
+        echo 'exported!',$exp
+    elif [ -v uexp ]; then
+        unset http_proxy
+        unset https_proxy
+        echo 'unset!'
+    elif [ -z $p ]; then
         http_proxy=http://$ipport https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ 
     else
         http_proxy=http://$ipport https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ --http-proxy http://$ipport

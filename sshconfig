@@ -8,6 +8,10 @@ ServerAliveInterval 60
 UserKnownHostsFile /dev/null 
 StrictHostKeyChecking no
 
+Host cqh
+    HostName 96.44.184.214
+    User root
+
 Host git
     HostName 192.168.1.253
     User root
