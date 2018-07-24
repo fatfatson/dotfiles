@@ -143,17 +143,6 @@ function tmsp
     tmux split $1 -c $PWD
 }
 
-function mk8
-{
-    cmd=$1
-    #echo $1
-    if [ $cmd == "env" ]; then
-        echo 'eval docker-env'
-        eval $(minikube docker-env)
-    else
-        minikube --logtostderr $@
-    fi
-}
 
 function set_hkp
 {
@@ -281,10 +270,13 @@ function settitle()
 
 fi
  
+#############################################
+#all platform
 pwd=$(pwd)
 [ -f $pwd/bash.local ] && . $pwd/bash.local
 [ -f $pwd/tool/bash.local ] && . $pwd/tool/bash.local
 [ -f $pwd/tools/bash.local ] && . $pwd/tools/bash.local
+. $dotfiles_home/bash_util_docker.sh
 #############################################
 
 alias tmuxk='tmux kill-server'

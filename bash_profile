@@ -1,7 +1,7 @@
 #!/bin/bash
 export EXEC_BASH_PROFILE=`whoami`
-source ~/.bashrc
 [ -f ~/.dotfiles_home ] && source ~/.dotfiles_home
+source ~/.bashrc
 [ -f ~/.bash_local ] && source ~/.bash_local
 [ -f ~/dotfiles/tmux.comp ] && source ~/dotfiles/tmux.comp
 
