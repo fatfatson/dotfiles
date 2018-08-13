@@ -16,6 +16,14 @@ Host git
     HostName 192.168.1.253
     User root
 
+Host n21
+    HostName 192.168.1.21
+    User xiaoting
+
+Host n22
+    HostName 192.168.1.22
+    User xiaoting
+
 Host ci
     HostName 192.168.1.252
     User wellbye
