@@ -283,16 +283,15 @@ pwd=$(pwd)
 [ -f $pwd/bash.local ] && . $pwd/bash.local
 [ -f $pwd/tool/bash.local ] && . $pwd/tool/bash.local
 [ -f $pwd/tools/bash.local ] && . $pwd/tools/bash.local
-<<<<<<< HEAD
 [ -s "$HOME/.bash_completion_kube" ] && . "$HOME/.bash_completion_kube"  
-=======
 . $dotfiles_home/bash_util_docker.sh
->>>>>>> 163dea3992eb1f5a1547a5e61077f5cc5571a087
 #############################################
 
 alias tmuxk='tmux kill-server'
 alias tmuxa='tmux attach'
 alias cddof='cd ~/dotfiles'
+alias kbc='kubectl'
+alias kbm='kubeadm'
 
 export PATH=/usr/local/sbin:/usr/local/bin/:$PATH
 
