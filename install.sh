@@ -12,7 +12,7 @@ for file in $files; do
 	ln -s $dir/$file ~/.$file
 done
 
-echo dotfiles_home="$dir" > ~/.dotfiles_home
+echo export dotfiles_home="$dir" > ~/.dotfiles_home
 
 rm -rf ~/.profile
 cat profile | sed s/\$USER/`whoami`/ > ~/.profile

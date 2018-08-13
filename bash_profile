@@ -1,7 +1,7 @@
 #!/bin/bash
 export EXEC_BASH_PROFILE=`whoami`
-source ~/.bashrc
 [ -f ~/.dotfiles_home ] && source ~/.dotfiles_home
+source ~/.bashrc
 [ -f ~/.bash_local ] && source ~/.bash_local
 [ -f ~/dotfiles/tmux.comp ] && source ~/dotfiles/tmux.comp
 
@@ -23,7 +23,10 @@ export QT_ROOT=~/Qt5.5.1/5.5/clang_64/bin
 export DEPOT=~/git-repo/depot_tools
 export PATH=$dotfiles_home:$COCOS_CONSOLE_ROOT:$ANT_ROOT:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$NDK_ROOT:$QT_ROOT:$PATH:/usr/sbin
 export PATH_DYNADD=/Users/mac/Qt5.9.1/5.9.1/clang_64/bin
+export PATH_DYNADD=$HOME/libimobiledevice-macosx:$PATH_DYNADD
+export DYLD_LIBRARY_PATH=$HOME/libimobiledevice-macosx:$DYLD_LIBRARY_PATH
 export PATH=$PATH_DYNADD:"$HOME/.fastlane/bin:$PATH"
+
 
 export PS1="[\u@\h:\w]"
 export LANG="en_US.UTF-8"

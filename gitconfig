@@ -23,8 +23,8 @@
     lsu = ls-files --others --exclude-standard
 
     logn = log --name-status
-	ci = commit
 	ro = remote
+	stl = !"git log | grep git-subtree-dir | tr -d ' ' | cut -d ':' -f2 | sort | uniq"
 
 [push]
 	default = current

@@ -105,6 +105,11 @@ function adbi
     fi
 }
 
+function adbt
+{
+    adb shell su root date $(date +%m%d%H%M%Y.%S)
+}
+
 function geny
 {
     if [ x$1 == x ]; then
@@ -138,10 +143,12 @@ function tmsp
     tmux split $1 -c $PWD
 }
 
+
 function set_hkp
 {
     export hkp_proxy=$1
 }
+
 
 function hkp_do
 {
@@ -156,8 +163,20 @@ function hkp_do
 
     ipport=${finalv:-127.0.0.1:9527}
     echo "hkp_proxy is: $ipport"
-    if [ -z $p ]; then
-        http_proxy=http://$ipport no_proxy="$no_proxy" https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ 
+
+    #echo "var:",$exp,$uexp,$p
+    if [ -v exp ]; then
+        export http_proxy=http://$ipport
+        export https_proxy=http://$ipport
+        export no_proxy="$no_proxy"
+        echo 'exported!',$exp
+    elif [ -v uexp ]; then
+        unset http_proxy
+        unset https_proxy
+        unset no_proxy
+        echo 'unset!'
+    elif [ -z $p ]; then
+        no_proxy="$no_proxy" http_proxy=http://$ipport https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ 
     else
         http_proxy=http://$ipport no_proxy="$no_proxy" https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ --http-proxy http://$ipport
     fi
@@ -219,6 +238,11 @@ alias api="brew install"
 alias readlink=greadlink
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
+function logs
+{
+    log stream --info --debug --predicate "sender == \"$1\"" --style syslog
+}
+
 #############################################
 elif [ "$OS" == "Linux" ] ;then
 
@@ -253,11 +277,17 @@ function settitle()
 
 fi
  
+#############################################
+#all platform
 pwd=$(pwd)
 [ -f $pwd/bash.local ] && . $pwd/bash.local
 [ -f $pwd/tool/bash.local ] && . $pwd/tool/bash.local
 [ -f $pwd/tools/bash.local ] && . $pwd/tools/bash.local
+<<<<<<< HEAD
 [ -s "$HOME/.bash_completion_kube" ] && . "$HOME/.bash_completion_kube"  
+=======
+. $dotfiles_home/bash_util_docker.sh
+>>>>>>> 163dea3992eb1f5a1547a5e61077f5cc5571a087
 #############################################
 
 alias tmuxk='tmux kill-server'
