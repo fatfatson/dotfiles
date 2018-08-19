@@ -1,4 +1,5 @@
 OS=$(uname)
+[ -f ~/.dotfiles_home ] && source ~/.dotfiles_home
 
 function reload-bashrc
 {

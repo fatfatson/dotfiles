@@ -1,6 +1,5 @@
 #!/bin/bash
 export EXEC_BASH_PROFILE=`whoami`
-[ -f ~/.dotfiles_home ] && source ~/.dotfiles_home
 source ~/.bashrc
 
 
