@@ -48,6 +48,11 @@ function find_top_dir
 }
 export -f find_top_dir
 
+function gif2mp4
+{
+    ffmpeg -f gif -i $1 -pix_fmt yuv420p -c:v libx264 -movflags +faststart -filter:v crop='floor(in_w/2)*2:floor(in_h/2)*2' $1.mp4
+}
+
 function git-fix-push
 {
     git ca -m "fix" && git push

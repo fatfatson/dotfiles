@@ -1,3 +1,4 @@
+#!/bin/bash
 
 function mk8
 {
@@ -12,6 +13,16 @@ function mk8
     else
         minikube --logtostderr $@
     fi
+}
+
+function docker-ls-untag-images
+{
+    docker images -f dangling=true -q
+}
+
+function docker-rm-untag-images
+{
+    docker rmi -f $(docker-ls-untag-images)
 }
 
 function docker-show-tags

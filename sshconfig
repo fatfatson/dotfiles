@@ -8,6 +8,10 @@ ServerAliveInterval 60
 UserKnownHostsFile /dev/null 
 StrictHostKeyChecking no
 
+Host ss
+    HostName ss.19v5.com
+    User root
+
 Host cqh
     HostName 96.44.184.214
     User root
