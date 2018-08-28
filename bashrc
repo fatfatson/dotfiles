@@ -1,4 +1,5 @@
 OS=$(uname)
+[ -f ~/.dotfiles_home ] && source ~/.dotfiles_home
 
 function reload-bashrc
 {
@@ -46,6 +47,11 @@ function find_top_dir
     fi
 }
 export -f find_top_dir
+
+function gif2mp4
+{
+    ffmpeg -f gif -i $1 -pix_fmt yuv420p -c:v libx264 -movflags +faststart -filter:v crop='floor(in_w/2)*2:floor(in_h/2)*2' $1.mp4
+}
 
 function git-fix-push
 {
@@ -105,6 +111,11 @@ function adbi
     fi
 }
 
+function adbt
+{
+    adb shell su root date $(date +%m%d%H%M%Y.%S)
+}
+
 function geny
 {
     if [ x$1 == x ]; then
@@ -138,10 +149,12 @@ function tmsp
     tmux split $1 -c $PWD
 }
 
+
 function set_hkp
 {
     export hkp_proxy=$1
 }
+
 
 function hkp_do
 {
@@ -156,8 +169,20 @@ function hkp_do
 
     ipport=${finalv:-127.0.0.1:9527}
     echo "hkp_proxy is: $ipport"
-    if [ -z $p ]; then
-        http_proxy=http://$ipport no_proxy="$no_proxy" https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ 
+
+    #echo "var:",$exp,$uexp,$p
+    if [ -v exp ]; then
+        export http_proxy=http://$ipport
+        export https_proxy=http://$ipport
+        export no_proxy="$no_proxy"
+        echo 'exported!',$exp
+    elif [ -v uexp ]; then
+        unset http_proxy
+        unset https_proxy
+        unset no_proxy
+        echo 'unset!'
+    elif [ -z $p ]; then
+        no_proxy="$no_proxy" http_proxy=http://$ipport https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ 
     else
         http_proxy=http://$ipport no_proxy="$no_proxy" https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ --http-proxy http://$ipport
     fi
@@ -219,6 +244,11 @@ alias api="brew install"
 alias readlink=greadlink
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
+function logs
+{
+    log stream --info --debug --predicate "sender == \"$1\"" --style syslog
+}
+
 #############################################
 elif [ "$OS" == "Linux" ] ;then
 
@@ -253,33 +283,58 @@ function settitle()
 
 fi
  
-pwd=$(pwd)
-[ -f $pwd/bash.local ] && . $pwd/bash.local
-[ -f $pwd/tool/bash.local ] && . $pwd/tool/bash.local
-[ -f $pwd/tools/bash.local ] && . $pwd/tools/bash.local
-[ -s "$HOME/.bash_completion_kube" ] && . "$HOME/.bash_completion_kube"  
 #############################################
+#all platform
 
 alias tmuxk='tmux kill-server'
 alias tmuxa='tmux attach'
 alias cddof='cd ~/dotfiles'
-
+alias kbc='kubectl'
+alias kbm='kubeadm'
 export PATH=/usr/local/sbin:/usr/local/bin/:$PATH
+
+source $dotfiles_home/tmux.comp
+source $dotfiles_home/bash_util_docker.sh
+
+
+function load-kube(){
+
+    type kubectl >/dev/null 2>&1
+    [ $? -eq 0 ] && bin=kubectl
+    type kubectl.exe >/dev/null 2>&1
+    [ $? -eq 0 ] && bin=kubectl.exe
+
+    #echo $bin
+    #$bin completion bash
+    source <($bin completion bash)
+}
 
 function load-nvm(){
     export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  
 }
 load-nvm
 
 function load-rvm(){
     source ~/.rvm/scripts/rvm
+    export PATH="$PATH:$HOME/.rvm/bin"
 }
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+function load-sdkman(){
+    export SDKMAN_DIR="$HOME/.sdkman"
+    source "$SDKMAN_DIR/bin/sdkman-init.sh"
+}
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/xiaoting/.sdkman"
-[[ -s "/home/xiaoting/.sdkman/bin/sdkman-init.sh" ]] && source "/home/xiaoting/.sdkman/bin/sdkman-init.sh"
+#############################################
+#加载本机特定配置文件
+[ -f $dotfiles_home/bashrc.`hostname` ] && source $dotfiles_home/bashrc.`hostname`
+#############################################
+
+#############################################
+#最后加载当前目录下的配置文件
+pwd=$(pwd)
+[ -f $pwd/bash.local ] && . $pwd/bash.local
+[ -f $pwd/tool/bash.local ] && . $pwd/tool/bash.local
+[ -f $pwd/tools/bash.local ] && . $pwd/tools/bash.local
+#############################################
