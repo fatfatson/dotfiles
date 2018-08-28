@@ -15,6 +15,16 @@ function mk8
     fi
 }
 
+function docker-stop-all
+{
+    docker stop $(docker ps -q)
+}
+
+function docker-rm-all
+{
+    docker rm $(docker ps -a -q)
+}
+
 function docker-ls-untag-images
 {
     docker images -f dangling=true -q
