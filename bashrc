@@ -152,12 +152,14 @@ function hkp_do
         fi
     fi
 
+    no_proxy="192.168.0.0/16,10.96.0.0/16,10.244.0.0/16"
+
     ipport=${finalv:-127.0.0.1:9527}
     echo "hkp_proxy is: $ipport"
     if [ -z $p ]; then
-        http_proxy=http://$ipport https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ 
+        http_proxy=http://$ipport no_proxy="$no_proxy" https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ 
     else
-        http_proxy=http://$ipport https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ --http-proxy http://$ipport
+        http_proxy=http://$ipport no_proxy="$no_proxy" https_proxy=http://$ipport HTTP_PROXY=http://$ipport HTTPS_PROXY=http://$ipport $@ --http-proxy http://$ipport
     fi
 }
 
@@ -229,6 +231,10 @@ settitle() {
     echo -ne "\033]0;$1\007"
 }
 
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
 #############################################
 elif [[ $OS == CYGWIN* ]]; then
 alias ls='ls -al --color=auto'
@@ -251,6 +257,7 @@ pwd=$(pwd)
 [ -f $pwd/bash.local ] && . $pwd/bash.local
 [ -f $pwd/tool/bash.local ] && . $pwd/tool/bash.local
 [ -f $pwd/tools/bash.local ] && . $pwd/tools/bash.local
+[ -s "$HOME/.bash_completion_kube" ] && . "$HOME/.bash_completion_kube"  
 #############################################
 
 alias tmuxk='tmux kill-server'
@@ -264,6 +271,7 @@ function load-nvm(){
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
+load-nvm
 
 function load-rvm(){
     source ~/.rvm/scripts/rvm
@@ -271,3 +279,7 @@ function load-rvm(){
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/xiaoting/.sdkman"
+[[ -s "/home/xiaoting/.sdkman/bin/sdkman-init.sh" ]] && source "/home/xiaoting/.sdkman/bin/sdkman-init.sh"
