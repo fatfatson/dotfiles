@@ -55,7 +55,7 @@ function gif2mp4
 
 function git-fix-push
 {
-    git ca -m "fix" && git push
+    git ca -m "${1:-fix}" && git push
 }
 
 function add2path
@@ -249,6 +249,10 @@ function logs
     log stream --info --debug --predicate "sender == \"$1\"" --style syslog
 }
 
+settitle() {
+    echo -ne "\033]0;$1\007"
+}
+
 #############################################
 elif [ "$OS" == "Linux" ] ;then
 
@@ -309,10 +313,34 @@ function load-kube(){
     source <($bin completion bash)
 }
 
+function _nr_completion() {
+
+    local words cword
+    _get_comp_words_by_ref -n = -n @ -n : -w words -i cword
+
+    if [ $cword -gt 1 ]; then return 0; fi
+
+    local point=8 #'npm run '的长度
+    local w1=${COMP_WORDS[1]:-''}
+    local wlen=${#w1}
+    point=$((point+wlen))
+    #echo !!!w1:$w1, point:$point
+    local si="$IFS"
+    #set -x
+    IFS=$'\n' COMPREPLY=($(COMP_CWORD=2 COMP_LINE="npm run $w1" COMP_POINT=$point npm completion -- npm run "$w1" 2>/dev/null)) || return $?
+    #set +x
+    IFS="$si"
+    #echo !!!cword:$COMP_CWORD, words:$w1, point:$point, reply:${COMPREPLY[@]},----
+    #COMPREPLY=(a b c)
+    __ltrim_colon_completions "${words[cword]}"
+}
 function load-nvm(){
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  
+    [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  
+    alias nr='npm run'
+    complete -o default -F _nr_completion nr
+    #complete -o default -F _npm_completion nr
 }
 load-nvm
 
