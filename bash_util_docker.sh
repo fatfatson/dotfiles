@@ -1,5 +1,8 @@
 #!/bin/bash
 
+alias dm=docker-machine
+alias dmls="docker-machine ls -t 2"
+
 function mk8
 {
     cmd=$1
