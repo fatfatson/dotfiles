@@ -3,6 +3,8 @@ export EXEC_BASH_PROFILE=`whoami`
 source ~/.bashrc
 
 
+export UNITY_APP=/Volumes/data/Applications/Unity/Unity.app
+
 export ANDROID_SDK=~/sdk/adk
 export ANDROID_SDK_ROOT=$ANDROID_SDK
 export ANDROID_HOME=$ANDROID_SDK

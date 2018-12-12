@@ -300,6 +300,13 @@ export PATH=/usr/local/sbin:/usr/local/bin/:$PATH
 source $dotfiles_home/tmux.comp
 source $dotfiles_home/bash_util_docker.sh
 
+function ssh-lfs(){
+   dir=`readlink -f ${2:-$PWD}`
+   rdir=/tmp/sshfs
+   echo "ssh and mount:"$dir
+   ssh $1 -R 12000:localhost:22 -t "mkdir -p $rdir; sshfs -p 12000 -o idmap=user,nonempty -o allow_other wellbye@localhost:$dir $rdir; cd $rdir; bash -l"
+}
+
 
 function load-kube(){
 
