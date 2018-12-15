@@ -342,15 +342,16 @@ function _nr_completion() {
     #COMPREPLY=(a b c)
     __ltrim_colon_completions "${words[cword]}"
 }
+
+export NVM_DIR="$HOME/.nvm"
 function load-nvm(){
-    export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  
     [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  
     alias nr='npm run'
     complete -o default -F _nr_completion nr
     #complete -o default -F _npm_completion nr
 }
-load-nvm
+#load-nvm
 
 function load-rvm(){
     source ~/.rvm/scripts/rvm
