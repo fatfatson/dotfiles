@@ -1,5 +1,12 @@
 #!/bin/bash
 
+alias dkm=docker-machine
+alias dkmls="docker-machine ls -t 2"
+
+function dkm-env {
+    eval $(docker-machine env $1)
+}
+
 function mk8
 {
     cmd=$1

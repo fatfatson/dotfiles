@@ -16,9 +16,10 @@ Host cqh
     HostName 96.44.184.214
     User root
 
-Host git
-    HostName 192.168.1.253
+Host af
+    HostName 47.101.166.230
     User root
+
 
 Host n31
     HostName 192.168.1.31
@@ -33,9 +34,10 @@ Host n22
     User xiaoting
     Port 1022
 
-Host ci
-    HostName 192.168.1.252
-    User wellbye
+Host n22o
+    HostName cz.19v5.com
+    User xiaoting
+    Port 1022
 
 Host xjh
     HostName www.xiaojuhao.org
