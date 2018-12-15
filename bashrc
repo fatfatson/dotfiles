@@ -299,6 +299,7 @@ export PATH=/usr/local/sbin:/usr/local/bin/:$PATH
 
 source $dotfiles_home/tmux.comp
 source $dotfiles_home/bash_util_docker.sh
+source $dotfiles_home/bash_util_git.sh
 
 function ssh-lfs(){
    dir=`readlink -f ${2:-$PWD}`
