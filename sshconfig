@@ -8,6 +8,10 @@ ServerAliveInterval 60
 UserKnownHostsFile /dev/null 
 StrictHostKeyChecking no
 
+Host hk
+    HostName 150.109.62.93
+    User root
+
 Host ss
     HostName ss.19v5.com
     User root
