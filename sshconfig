@@ -8,6 +8,10 @@ ServerAliveInterval 60
 UserKnownHostsFile /dev/null 
 StrictHostKeyChecking no
 
+Host usa
+    HostName 47.254.93.147
+    User root
+
 Host hk
     HostName 150.109.62.93
     User root
