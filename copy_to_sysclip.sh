@@ -10,8 +10,9 @@ if [ -n "$SSH_CLIENT" ]; then
     echo $text >&3
     exec 3>&-
     echo "close socket:"$?
+fi
 
-elif [ "$OS" == "Darwin" ] ;then
+if [ "$OS" == "Darwin" ] ;then
     echo -n $text|reattach-to-user-namespace pbcopy
 
 elif [[ $OS == CYGWIN* ]]; then

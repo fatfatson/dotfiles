@@ -175,6 +175,9 @@ function hkp_do
         export http_proxy=http://$ipport
         export https_proxy=http://$ipport
         export no_proxy="$no_proxy"
+        export HTTP_PROXY=http://$ipport
+        export HTTPS_PROXY=http://$ipport
+        export NO_PROXY="$no_proxy"
         echo 'exported!',$exp
     elif [ -v uexp ]; then
         unset http_proxy
