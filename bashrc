@@ -1,5 +1,6 @@
 OS=$(uname)
 [ -f ~/.dotfiles_home ] && source ~/.dotfiles_home
+export PATH=$PATH:/usr/local/bin
 
 function reload-bashrc
 {
