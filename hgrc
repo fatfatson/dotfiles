@@ -3,4 +3,4 @@
 #sslverify=false
 
 [hostfingerprints]
-bitbucket.org = 80:14:e3:9a:dd:51:75:de:ce:11:3a:31:74:5e:a9:75:c4:b5:19:a9 
+#bitbucket.org = 80:14:e3:9a:dd:51:75:de:ce:11:3a:31:74:5e:a9:75:c4:b5:19:a9 
