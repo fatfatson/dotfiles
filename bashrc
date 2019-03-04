@@ -319,9 +319,9 @@ function load-kube(){
     type kubectl.exe >/dev/null 2>&1
     [ $? -eq 0 ] && bin=kubectl.exe
 
-    #echo $bin
+    #echo "kubebin":$bin
     #$bin completion bash
-    source <($bin completion bash)
+    [ -v bin ] && source <($bin completion bash)
 }
 
 function _nr_completion() {
