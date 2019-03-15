@@ -351,7 +351,7 @@ export NVM_DIR="$HOME/.nvm"
 function load-nvm(){
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  
     [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  
-    alias nr='npm run'
+    alias nr='yarn run'
     complete -o default -F _nr_completion nr
     #complete -o default -F _npm_completion nr
 }
