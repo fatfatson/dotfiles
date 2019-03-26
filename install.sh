@@ -5,11 +5,11 @@ olddir=~/dotfiles_old
 rm -rf $olddir
 mkdir -p $olddir
 
-files="bash_profile bashrc inputrc vimrc vim tmux.conf gitconfig hgrc"
+files="bash_profile bashrc inputrc vimrc tmux.conf gitconfig hgrc"
 cd "$dir"
 for file in $files; do
 	[ -f ~/.$file ] && mv -f ~/.$file ~/dotfiles_old/
-	ln -s $dir/$file ~/.$file
+	ln -fs $dir/$file ~/.$file
 done
 
 echo export dotfiles_home="$dir" > ~/.dotfiles_home
