@@ -12,6 +12,11 @@ function reload-profile
     source ~/.bash_profile
 }
 
+function redo
+{
+    while :; do $@; done
+}
+
 function find_top_dir
 {
     if [ "$0" == "-bash" ]; then
