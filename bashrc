@@ -12,6 +12,11 @@ function reload-profile
     source ~/.bash_profile
 }
 
+function redo
+{
+    while :; do $@; done
+}
+
 function find_top_dir
 {
     if [ "$0" == "-bash" ]; then
@@ -289,6 +294,11 @@ function settitle()
     echo -ne '\e]0;'$1'\a'
 }
 
+elif [[ $OS == MINGW* ]]; then
+export MSYS=winsymlinks:nativestrict
+alias ls='ls -al --color=auto'
+alias sudo=''
+alias open=cygstart
 fi
  
 #############################################
