@@ -294,6 +294,11 @@ function settitle()
     echo -ne '\e]0;'$1'\a'
 }
 
+elif [[ $OS == MINGW* ]]; then
+export MSYS=winsymlinks:nativestrict
+alias ls='ls -al --color=auto'
+alias sudo=''
+alias open=cygstart
 fi
  
 #############################################
@@ -314,7 +319,8 @@ function ssh-lfs(){
    dir=`readlink -f ${2:-$PWD}`
    rdir=/tmp/sshfs
    echo "ssh and mount:"$dir
-   ssh $1 -R 12000:localhost:22 -t "mkdir -p $rdir; sshfs -p 12000 -o idmap=user,nonempty -o allow_other wellbye@localhost:$dir $rdir; cd $rdir; bash -l"
+   #ssh $1 -R 12000:localhost:22 -t "mkdir -p $rdir; sshfs -p 12000 -o idmap=user,nonempty -o allow_other wellbye@localhost:$dir $rdir; cd $rdir; bash -l"
+   ssh $1 -R 12000:localhost:22 -t "mkdir -p ~$rdir; sshfs -p 12000 -o idmap=user wellbye@localhost:$dir ~$rdir; cd ~$rdir; bash -l"
 }
 
 
