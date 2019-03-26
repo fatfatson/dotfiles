@@ -135,7 +135,7 @@ function run_sshagent
     if [ $? -eq 0 ]; then
         tm-setenv SSH_AGENT_PID $SSH_AGENT_PID
         tm-setenv SSH_AUTH_SOCK $SSH_AUTH_SOCK
-
+        echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/.ssh_auth
     fi
 }
 
