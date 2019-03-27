@@ -43,3 +43,4 @@ else
 fi
 
 [[ -f /usr/libexec/path_helper ]] && eval $(/usr/libexec/path_helper -s)
+[ -f ~/.ssh_auth ] && source ~/.ssh_auth
