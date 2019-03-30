@@ -368,6 +368,9 @@ function load-nvm(){
     #complete -o default -F _npm_completion nr
 }
 #load-nvm
+alias install-nvm="curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash"
+
+
 
 function load-rvm(){
     source ~/.rvm/scripts/rvm
