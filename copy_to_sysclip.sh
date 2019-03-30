@@ -1,5 +1,6 @@
 #!/bin/bash
 OS=$(uname)
+OSFULL=$(uname -a)
 
 text=`cat`
 echo "$OS copy_to_sysclip: $text"
@@ -17,6 +18,10 @@ if [ "$OS" == "Darwin" ] ;then
 
 elif [[ $OS == CYGWIN* ]]; then
     echo -n $text > /dev/clipboard
+
+elif [[ "$OSFULL" == Linux*Microsoft* ]]; then
+    echo 'copy in wsl'
+    echo -n $text | clip.exe
 
 elif [[ $OS == Linux ]]; then
     echo -n $text | xsel -i -p
