@@ -1,7 +1,7 @@
 OS=$(uname)
 [ -f ~/.dotfiles_home ] && source ~/.dotfiles_home
 [ -f ~/.ssh_auth ] && source ~/.ssh_auth
-export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local/bin:~/.local/bin
 
 function reload-bashrc
 {

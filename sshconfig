@@ -2,6 +2,7 @@ ForwardAgent yes
 #UseKeychain yes
 #AddKeysToAgent yes
 ServerAliveInterval 60
+LogLevel ERROR
 #RemoteForward 29292 127.0.0.1:29292
 #RemoteForward 29293 127.0.0.1:22
 
