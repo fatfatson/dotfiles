@@ -17,6 +17,13 @@ Host hk
     HostName 150.109.62.93
     User root
 
+Host 1g
+    HostName 124.156.209.242
+    User root
+Host 4g
+    HostName 150.109.196.18
+    User root
+
 Host ss
     HostName ss.19v5.com
     User root
