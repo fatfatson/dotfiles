@@ -134,8 +134,9 @@ function geny
     nohup ~/genymotion/player --vm-name "$device"&
 }
 
-function run_sshagent
+function run-sshagent
 {
+    unset SSH_AUTH_SOCK
     [ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent -s)
     ssh-add
     if [ $? -eq 0 ]; then
